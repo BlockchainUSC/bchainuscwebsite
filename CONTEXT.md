@@ -9,7 +9,7 @@
 **Repo directory:** `/Users/noahneri/blockchain-usc`
 **Purpose:** Public-facing landing page for Blockchain@USC — USC's premier student-led organization dedicated to blockchain research, rigorous protocol analysis, and accelerating Web3 founders.
 **Audience:** Prospective members, founders, researchers, partners.
-**Current state:** Core site is live and functional. All content is real (team, events, research articles). Logo is placed. Nav, footer, and CTAs are accurate.
+**Current state:** Core site is live and functional. All content is real (team, events, research articles, partners). Logo placed. Nav, footer, and CTAs accurate. Ticker shows real partners.
 
 ---
 
@@ -95,7 +95,7 @@ public/
 
 **Top nav:** Research | Events | Team | [Fall '26 Cohort Coming Soon — disabled span]
 **Footer index:** Research | Events | Team
-**Footer connect:** LinkedIn | Twitter | Instagram | GitHub | YouTube | Email Us
+**Footer connect:** LinkedIn | Twitter | Instagram | GitHub | YouTube | Medium | Email Us
 
 ---
 
@@ -108,6 +108,7 @@ public/
 | Instagram | https://www.instagram.com/blockchainatusc/ |
 | GitHub | https://github.com/BlockchainUSC |
 | YouTube | https://www.youtube.com/@blockchainusc |
+| Medium | https://medium.com/blockchain-at-usc |
 | Email | bchain@usc.edu |
 
 ---
@@ -130,6 +131,12 @@ public/
 
 Headshot images: `public/team/headshots/<name>.png` or `.jpg`
 Image path in JSON: `/team/headshots/<filename>`
+
+---
+
+## Ticker Partners (real, live in `src/components/Ticker.tsx`)
+
+VanEck | a16z | Solana | Optimism | Superscrypt | Dorm DAO | SUI | Aptos | AVA Labs | Akash
 
 ---
 
@@ -205,6 +212,8 @@ interface TeamMember {
 **Copyright year is 2026.**
 **Logo** — `public/logo.png`, 3D isometric red/gold block mark. Rendered in Nav at 36×36px via `next/image`, left of the wordmark.
 **All external links** use `target="_blank" rel="noopener noreferrer"` — footer connect links, team social links, research "Read Paper" links, event RSVP buttons.
+**Medium added to footer Connect links** — placed between YouTube and Email Us. `external: true` so it opens in a new tab.
+**Ticker partners are real** — replaced all placeholder names (a16z crypto, Paradigm, Coinbase, etc.) with 10 real Blockchain@USC partners.
 
 ---
 
@@ -227,7 +236,7 @@ interface TeamMember {
 
 ---
 
-## Corrections Made This Session
+## Corrections & Behavior Updates (All Sessions)
 
 - **Email address** — initially used `blockchain@usc.edu`; corrected to `bchain@usc.edu`.
 - **Ticker / Partners** — initially planned to remove the Ticker entirely. Corrected: "I want the Partner ticker to stay on the page, but we don't need a top redirect that just goes to a ticker." — keep Ticker on page, remove Partners from nav only.

@@ -1,11 +1,14 @@
 const PARTNERS = [
-  "a16z crypto",
-  "Paradigm",
-  "Coinbase",
+  "VanEck",
+  "a16z",
+  "Solana",
   "Optimism",
-  "Solana Foundation",
-  "Uniswap Labs",
-  "Jump Crypto",
+  "Superscrypt",
+  "Dorm DAO",
+  "SUI",
+  "Aptos",
+  "AVA Labs",
+  "Akash",
 ];
 
 export default function Ticker() {

@@ -2,13 +2,13 @@
 
 **USC's premier student-led organization dedicated to blockchain research, rigorous protocol analysis, and accelerating Web3 founders.**
 
-**Status:** Active development — core site live, content populated, team data real.
+**Status:** Active development — core site live, all content real and current.
 
 ---
 
 ## What It Does
 
-Public-facing landing page for Blockchain@USC. Showcases research publications pulled from Medium, upcoming events with signup links, the current leadership team with headshots and socials, and club-wide social/contact links.
+Public-facing landing page for Blockchain@USC. Showcases research publications pulled from Medium, upcoming events with signup links, the current leadership team with headshots and socials, real partner ticker, and club-wide social/contact links.
 
 ## Who It's For
 

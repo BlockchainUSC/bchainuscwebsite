@@ -2,6 +2,21 @@
 
 ---
 
+## Session: 2026-03-26
+
+### Completed
+
+**Ticker — Real Partners**
+- Replaced 7 placeholder names (a16z crypto, Paradigm, Coinbase, Solana Foundation, Uniswap Labs, Jump Crypto) with 10 real Blockchain@USC partners
+- `PARTNERS` array in `src/components/Ticker.tsx` now contains: VanEck, a16z, Solana, Optimism, Superscrypt, Dorm DAO, SUI, Aptos, AVA Labs, Akash
+
+**Footer — Medium Link**
+- Added Medium (`https://medium.com/blockchain-at-usc`) to `CONNECT_LINKS` in `src/components/Footer.tsx`
+- Positioned between YouTube and Email Us
+- `external: true` — opens in new tab
+
+---
+
 ## Session: 2026-03-24
 
 ### Completed
@@ -19,7 +34,7 @@
 - Index links updated: Governance removed, Members → Team
 - Connect links: replaced all `#` placeholders with real URLs (LinkedIn, Twitter, Instagram, GitHub, YouTube)
 - Added Instagram and YouTube (were not in original)
-- Removed Medium link (not provided)
+- Removed Medium link (not provided at the time — added 2026-03-26)
 - Email corrected to `bchain@usc.edu`
 - Copyright updated 2024 → 2026
 - All external links get `target="_blank" rel="noopener noreferrer"`
@@ -73,11 +88,11 @@
 |---|---|
 | Navigation (Research, Events, Team) | ✅ Live |
 | Hero + teaser CTA | ✅ Live |
-| Partner Ticker | ✅ Live, label fixed |
+| Partner Ticker (10 real partners) | ✅ Live |
 | Research grid (3 real Medium articles) | ✅ Live |
 | Events list (3 real events + links) | ✅ Live |
 | Team grid (11 real members + headshots) | ✅ Live |
-| Footer (real social links, correct email) | ✅ Live |
+| Footer (real social links, correct email, Medium) | ✅ Live |
 | Logo in nav | ✅ Live |
 | Newsletter form | ✅ Wired (Formspree via `FORMSPREE_ID` env var, console fallback) |
 | Background animations (mesh + wireframe) | ✅ Live |
@@ -89,4 +104,4 @@
 
 - Medium article fetch via `medium.com` direct URL returns 403 — RSS feed (`/feed/`) works. If research articles need updating, fetch `https://medium.com/feed/blockchain-at-usc`.
 - `FORMSPREE_ID` env var not confirmed set in production — newsletter form falls back to console.log if not configured.
-- Ticker partner names are still placeholder (a16z, Paradigm, Coinbase, etc.) — not real Blockchain@USC partners.
+- Site has never been deployed; currently dev only.

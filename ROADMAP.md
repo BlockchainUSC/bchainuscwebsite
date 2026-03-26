@@ -5,10 +5,6 @@
 
 ## Prioritized Tasks
 
-**[NEXT]** Update Ticker partner names to real Blockchain@USC partners/sponsors
-- Currently shows placeholder names (a16z, Paradigm, Coinbase, etc.)
-- Replace `PARTNERS` array in `src/components/Ticker.tsx`
-
 **[NEXT]** Configure `FORMSPREE_ID` environment variable in production
 - Newsletter form silently falls back to console.log without it
 - Set in Vercel (or wherever deployed) env vars
@@ -17,13 +13,13 @@
 - Site has never been deployed; currently dev only
 - Likely target: Vercel (natural fit for Next.js)
 
-**[SOON]** Update research articles when new Medium posts are published
-- Fetch `https://medium.com/feed/blockchain-at-usc` (RSS — works; direct URL returns 403)
-- Update/add MDX files in `content/research/`
-
 **[SOON]** Add real cohort application link when Fall '26 applications open
 - Currently "Fall '26 Cohort Coming Soon" is a disabled `<span>` in Nav + Hero
 - When ready: swap for `<a>` with real link, restore hover styles, remove `opacity-70 cursor-default`
+
+**[SOON]** Update research articles when new Medium posts are published
+- Fetch `https://medium.com/feed/blockchain-at-usc` (RSS — works; direct URL returns 403)
+- Update/add MDX files in `content/research/`
 
 **[SOON]** Update events when new events are announced
 - Add/edit MDX files in `content/events/`

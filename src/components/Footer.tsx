@@ -12,6 +12,7 @@ const CONNECT_LINKS = [
   { label: "Instagram", href: "https://www.instagram.com/blockchainatusc/", external: true },
   { label: "GitHub", href: "https://github.com/BlockchainUSC", external: true },
   { label: "YouTube", href: "https://www.youtube.com/@blockchainusc", external: true },
+  { label: "Medium", href: "https://medium.com/blockchain-at-usc", external: true },
   { label: "Email Us", href: "mailto:bchain@usc.edu", external: false },
 ];
 
