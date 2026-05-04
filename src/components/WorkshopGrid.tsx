@@ -34,13 +34,6 @@ export default function WorkshopGrid() {
             {/* Meta */}
             <div className="font-mono text-xs text-cardinal-bright mb-sm flex justify-between">
               <span>{workshop.tags[0]}</span>
-              <span>
-                {new Date(workshop.date).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "2-digit",
-                  year: "numeric",
-                })}
-              </span>
             </div>
 
             {/* Title */}
