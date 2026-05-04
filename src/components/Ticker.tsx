@@ -9,6 +9,8 @@ const PARTNERS = [
   "Aptos",
   "AVA Labs",
   "Akash",
+  "Kinexys by JPMC",
+  "Circle",
 ];
 
 export default function Ticker() {
