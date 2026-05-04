@@ -7,6 +7,15 @@ export interface ResearchPost {
   url?: string;
 }
 
+export interface Workshop {
+  slug: string;
+  title: string;
+  date: string;
+  tags: string[];
+  excerpt: string;
+  url?: string;
+}
+
 export interface Event {
   slug: string;
   title: string;

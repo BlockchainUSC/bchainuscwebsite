@@ -2,6 +2,7 @@ import NewsletterForm from "./NewsletterForm";
 
 const INDEX_LINKS = [
   { label: "Research", href: "#research" },
+  { label: "Workshops", href: "#workshops" },
   { label: "Events", href: "#events" },
   { label: "Team", href: "#team" },
 ];

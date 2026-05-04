@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { ResearchPost, Event } from "@/types";
+import { ResearchPost, Event, Workshop } from "@/types";
 
 const contentDir = path.join(process.cwd(), "content");
 const dataDir = path.join(process.cwd(), "data");
@@ -58,6 +58,32 @@ export function getAllEvents(): Event[] {
 
   return events.sort(
     (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
+}
+
+export function getAllWorkshops(): Workshop[] {
+  const dir = path.join(contentDir, "workshops");
+  if (!fs.existsSync(dir)) return [];
+
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".mdx"));
+
+  const workshops = files.map((file) => {
+    const slug = file.replace(/\.mdx$/, "");
+    const raw = fs.readFileSync(path.join(dir, file), "utf-8");
+    const { data } = matter(raw);
+
+    return {
+      slug,
+      title: data.title ?? "",
+      date: data.date ?? "",
+      tags: data.tags ?? [],
+      excerpt: data.excerpt ?? "",
+      url: data.url ?? undefined,
+    } satisfies Workshop;
+  });
+
+  return workshops.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }
 
