@@ -1,0 +1,13 @@
+name: Daily Ping
+
+on:
+  schedule:
+    - cron: "0 14 * * *" # runs every day at 14:00 UTC (~10 AM EST)
+  workflow_dispatch: # lets you run it manually too
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping site
+        run: curl -I https://www.blockchainatusc.com/
