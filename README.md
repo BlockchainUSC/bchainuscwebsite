@@ -27,6 +27,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Docs
 
+- [CONTRIBUTING.md](./CONTRIBUTING.md) — **Read first if you want to contribute.** Branch workflow, PR process, what lives where.
+- [DEPLOYMENT.md](./DEPLOYMENT.md) — One-time setup for Vercel auto-deploy and `main` branch protection.
 - [CONTEXT.md](./CONTEXT.md) — Full project memory. Upload this at the start of every new session.
 - [PROGRESS.md](./PROGRESS.md) — Changelog and current feature status.
 - [ROADMAP.md](./ROADMAP.md) — Prioritized list of what comes next.
