@@ -55,7 +55,8 @@ Set these in **Vercel → project → Settings → Environment Variables**:
 
 | Variable | What it does |
 |---|---|
-| `FORMSPREE_ID` | Newsletter form submission endpoint. Get the ID from [formspree.io](https://formspree.io). Without it, submissions log to console only. |
+| `RESEND_API_KEY` | Required for newsletter signups. Get from [resend.com](https://resend.com) → API Keys. Without it, signups log to console only. |
+| `RESEND_AUDIENCE_ID` | Optional. Resend audience/list ID to store contacts. Create one in Resend → Audiences. |
 
 ### Domain (Namecheap)
 
