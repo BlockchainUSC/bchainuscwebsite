@@ -14,6 +14,12 @@ export async function POST(request: Request) {
 
     const apiKey = process.env.RESEND_API_KEY;
 
+    console.log("env check", {
+    vercelEnv: process.env.VERCEL_ENV,
+    hasResendKey: !!process.env.RESEND_API_KEY,
+    hasSegment: !!process.env.RESEND_SEGMENT_ID,
+    });
+
     if (apiKey) {
       const resend = new Resend(apiKey);
       
