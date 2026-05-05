@@ -50,15 +50,15 @@ export async function POST(request: Request) {
       // Add contact to Resend segment
       const segmentId = process.env.RESEND_SEGMENT_ID;
       if (segmentId) {
-        const { data, error } = await resend.contacts.segments.add({
+        const { data: _data, error: _error } = await resend.contacts.segments.add({
           email: email,
           segmentId: segmentId,
         });
 
-        console.log("[newsletter] subscribed:", data);
+        console.log("[newsletter] subscribed:", _data);
 
-        if (error) {
-          console.error("[newsletter] error subscribing:", error);
+        if (_error) {
+          console.error("[newsletter] error subscribing:", _error);
         }
       
 
