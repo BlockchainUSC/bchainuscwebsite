@@ -49,14 +49,27 @@ The site is deployed under the **BlockchainUSC org Vercel account** (use the clu
 - Production branch: `main`
 - Domain: `blockchainatusc.com` + `www.blockchainatusc.com`
 
+### Newsletter (Resend)
+
+The newsletter signup form sends a branded confirmation email and optionally stores contacts in a Resend audience list.
+
+**One-time setup:**
+1. Create an account at [resend.com](https://resend.com) using the club email
+2. **Domains** → Add `blockchainatusc.com` → Resend gives you DNS records to add in Namecheap → this lets you send from `newsletter@blockchainatusc.com`
+3. **API Keys** → Create a key → copy it
+4. **Audiences** → Create an audience (e.g. "Newsletter") → click into it → copy the ID from the URL (`resend.com/audiences/<this-part>`)
+5. Add both to Vercel env vars (see below)
+
+Without `RESEND_API_KEY` set, signups silently log to console only — no email is sent and no contact is saved.
+
 ### Environment variables
 
 Set these in **Vercel → project → Settings → Environment Variables**:
 
-| Variable | What it does |
-|---|---|
-| `RESEND_API_KEY` | Required for newsletter signups. Get from [resend.com](https://resend.com) → API Keys. Without it, signups log to console only. |
-| `RESEND_AUDIENCE_ID` | Optional. Resend audience/list ID to store contacts. Create one in Resend → Audiences. |
+| Variable | Required | What it does |
+|---|---|---|
+| `RESEND_API_KEY` | Yes | Enables newsletter emails. Get from Resend → API Keys. |
+| `RESEND_AUDIENCE_ID` | No | Saves signups to a contact list. Get from Resend → Audiences → click audience → copy ID from URL. |
 
 ### Domain (Namecheap)
 
