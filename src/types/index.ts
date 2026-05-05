@@ -5,6 +5,7 @@ export interface ResearchPost {
   tags: string[];
   excerpt: string;
   url?: string;
+  author?: string;
 }
 
 export interface Workshop {

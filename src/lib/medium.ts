@@ -73,6 +73,7 @@ export async function getMediumPosts(): Promise<ResearchPost[]> {
         tags: (item.categories || []).slice(0, 3),
         excerpt: extractExcerpt(item),
         url: link,
+        author: (item.creator || "").trim() || undefined,
       } satisfies ResearchPost;
     });
   } catch (err) {
