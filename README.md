@@ -68,7 +68,7 @@ Set these in **Vercel → project → Settings → Environment Variables**:
 
 | Variable | Required | What it does |
 |---|---|---|
-| `RESEND_API_KEY` | Yes | Enables newsletter emails. Get from Resend → API Keys. |
+| `RESEND_API_KEY` | Yes | Enables newsletter emails. Get from Resend → API Keys. **Must have Full Access** (not Sending only) or contacts won't save. |
 | `RESEND_SEGMENT_ID` | No | Saves signups to a contact segment. Get from Resend → Contacts → Segments → create one → copy the ID. |
 
 ### Domain (Namecheap)
