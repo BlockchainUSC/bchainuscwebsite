@@ -5,9 +5,10 @@
 
 ## Prioritized Tasks
 
-**[NEXT]** Configure `FORMSPREE_ID` environment variable in production
-- Newsletter form silently falls back to console.log without it
-- Set in Vercel project → Settings → Environment Variables
+**[NEXT]** Add `RESEND_API_KEY` + `RESEND_SEGMENT_ID` to Vercel environment variables
+- Newsletter emails won't send in production without these
+- Resend account must be set up with `blockchainatusc.com` domain verified
+- API key must have Full Access (not Sending only)
 
 **[NEXT]** Add Vercel status check to branch protection rule
 - Go to GitHub → Settings → Rules → edit the main ruleset
