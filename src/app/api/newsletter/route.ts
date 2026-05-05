@@ -16,15 +16,40 @@ export async function POST(request: Request) {
 
     if (apiKey) {
       const resend = new Resend(apiKey);
+      
+
+      // Add contact
+      
+      console.log("[newsletter] adding contact:", email);
+    
+
+      const { data, error } = await resend.contacts.create({
+          email: email,
+          unsubscribed: false,
+      });
+
+
+            console.log("[newsletter] subscribing:", email);
 
       // Add contact to Resend segment
       const segmentId = process.env.RESEND_SEGMENT_ID;
       if (segmentId) {
-        await resend.contacts.create({ email, segments: [{ id: segmentId }] });
-      }
+        const { data, error } = await resend.contacts.segments.add({
+          email: email,
+          segmentId: segmentId,
+        });
+
+        console.log("[newsletter] subscribed:", data);
+
+        if (error) {
+          console.error("[newsletter] error subscribing:", error);
+        }
+      
+
+
 
       // Send confirmation email to the subscriber
-      await resend.emails.send({
+       const { data: emailData, error: emailError } =  await resend.emails.send({
         from: "Blockchain@USC <newsletter@blockchainatusc.com>",
         to: email,
         subject: "You're on the list — Blockchain@USC",
@@ -69,13 +94,21 @@ export async function POST(request: Request) {
           </html>
         `,
       });
+
+      console.log("[newsletter] email sent:", emailData);
+
+      if (emailError) {
+        console.error("[newsletter] error sending email:", emailError);
+      }
     } else {
       // No Resend configured — log for development
       console.log("[newsletter] New signup:", email);
     }
 
     return NextResponse.json({ success: true });
-  } catch {
+  } 
+}
+  catch {
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
