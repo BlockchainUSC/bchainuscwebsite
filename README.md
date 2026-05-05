@@ -74,9 +74,14 @@ Set these in **Vercel → project → Settings → Environment Variables**:
 ### Domain (Namecheap)
 
 DNS is managed in Namecheap under the club account. Records currently pointing to Vercel:
-- `A` record: `@` → `76.76.21.21`
-- `CNAME`: `www` → `cname.vercel-dns.com`
-- `TXT`: Vercel domain verification record (leave this — don't delete)
+- `A` record: `@` → `216.198.79.1`
+- `CNAME`: `www` → `450c78ed31edaf46.vercel-dns-017.com.`
+- `TXT`: `_vercel` -> `vc-domain-verify=www.blockchainatusc.com,dc9eec33284eb4f058dc` Vercel domain verification record (leave this — don't delete)
+- - `TXT`: `_vercel` -> `vc-domain-verify=blockchainatusc.com,1ebf15a10625358fc4f5` Vercel domain verification record (leave this — don't delete)
+
+Records Currently Pointing to Resend (Newsletter):
+- `TXT`: `_dmarc` -> `v=DMARC1; p=none;`
+- `MX Recrd` :  `send` -> `feedback-smtp.us-east-1.amazonses.com.`
 
 The old Webflow site is preserved but disconnected from the domain. To revert to Webflow: replace the A + CNAME records with `198.202.211.1` and `cdn.webflow.com`.
 
