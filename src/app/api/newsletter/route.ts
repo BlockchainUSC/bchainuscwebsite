@@ -20,7 +20,7 @@ export async function POST(request: Request) {
       // Add contact to Resend segment
       const segmentId = process.env.RESEND_SEGMENT_ID;
       if (segmentId) {
-        await resend.contacts.create({ email, segments: [segmentId] });
+        await resend.contacts.create({ email, segments: [{ id: segmentId }] });
       }
 
       // Send confirmation email to the subscriber
