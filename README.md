@@ -57,7 +57,7 @@ The newsletter signup form sends a branded confirmation email and optionally sto
 1. Create an account at [resend.com](https://resend.com) using the club email
 2. **Domains** → Add `blockchainatusc.com` → Resend gives you DNS records to add in Namecheap → this lets you send from `newsletter@blockchainatusc.com`
 3. **API Keys** → Create a key → copy it
-4. **Audiences** → Create an audience (e.g. "Newsletter") → click into it → copy the ID from the URL (`resend.com/audiences/<this-part>`)
+4. **Contacts → Segments** → Create a segment (e.g. "Newsletter") → copy the segment ID from the response or URL
 5. Add both to Vercel env vars (see below)
 
 Without `RESEND_API_KEY` set, signups silently log to console only — no email is sent and no contact is saved.
@@ -69,7 +69,7 @@ Set these in **Vercel → project → Settings → Environment Variables**:
 | Variable | Required | What it does |
 |---|---|---|
 | `RESEND_API_KEY` | Yes | Enables newsletter emails. Get from Resend → API Keys. |
-| `RESEND_AUDIENCE_ID` | No | Saves signups to a contact list. Get from Resend → Audiences → click audience → copy ID from URL. |
+| `RESEND_SEGMENT_ID` | No | Saves signups to a contact segment. Get from Resend → Contacts → Segments → create one → copy the ID. |
 
 ### Domain (Namecheap)
 
