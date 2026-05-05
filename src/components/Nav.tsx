@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Team", href: "#team" },
 ];
 
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
