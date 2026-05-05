@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
 export async function POST(request: Request) {
   try {
@@ -11,24 +12,31 @@ export async function POST(request: Request) {
       );
     }
 
-    const formspreeId = process.env.FORMSPREE_ID;
+    const apiKey = process.env.RESEND_API_KEY;
 
-    if (formspreeId) {
-      // Forward to Formspree
-      const res = await fetch(`https://formspree.io/f/${formspreeId}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
+    if (apiKey) {
+      const resend = new Resend(apiKey);
 
-      if (!res.ok) {
-        return NextResponse.json(
-          { error: "Failed to submit" },
-          { status: 500 }
-        );
+      // Add contact to Resend audience
+      const audienceId = process.env.RESEND_AUDIENCE_ID;
+      if (audienceId) {
+        await resend.contacts.create({ email, audienceId });
       }
+
+      // Send confirmation email to the subscriber
+      await resend.emails.send({
+        from: "Blockchain@USC <newsletter@blockchainatusc.com>",
+        to: email,
+        subject: "You're on the list — Blockchain@USC",
+        html: `
+          <p>Hey,</p>
+          <p>You're now subscribed to research updates from <strong>Blockchain@USC</strong>.</p>
+          <p>We publish protocol analysis, DeFi research, and ecosystem deep-dives on our <a href="https://medium.com/blockchain-at-usc">Medium</a>.</p>
+          <p>— Blockchain@USC</p>
+        `,
+      });
     } else {
-      // No Formspree configured — log to console for development
+      // No Resend configured — log for development
       console.log("[newsletter] New signup:", email);
     }
 
