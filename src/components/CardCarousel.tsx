@@ -9,6 +9,7 @@ export type CarouselItem = {
   tags: string[];
   excerpt: string;
   url?: string;
+  author?: string;
 };
 
 type Props = {
@@ -86,9 +87,16 @@ export default function CardCarousel({ items, linkLabel, showDate = false }: Pro
             </h3>
 
             {/* Excerpt */}
-            <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-lg flex-grow">
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-sm flex-grow">
               {item.excerpt}
             </p>
+
+            {/* Author */}
+            {item.author && (
+              <p className="font-mono text-xs text-[var(--text-secondary)] mb-lg">
+                {item.author}
+              </p>
+            )}
 
             {/* Link */}
             <a
