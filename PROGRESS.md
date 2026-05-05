@@ -2,6 +2,41 @@
 
 ---
 
+## Session: 2026-05-04
+
+### Completed
+
+**Research — Live Medium RSS feed**
+- `src/lib/medium.ts`: fetches `https://medium.com/feed/blockchain-at-usc` via `rss-parser` at runtime
+- Cached 24h via Next.js ISR (`fetch` with `next: { revalidate: 86400 }`) — new posts appear within a day, no redeploy needed
+- Extracts title, date, tags (categories), excerpt (stripped HTML), author (`dc:creator`), and link
+- `ResearchGrid` is now an async server component; falls back to local MDX in `content/research/` if Medium is unreachable
+
+**Carousels — Research + Workshops**
+- `src/components/CardCarousel.tsx`: generic horizontal scroll-snap carousel with prev/next arrows; replaces `WorkshopCarousel`
+- Props: `items`, `linkLabel`, `showDate` — reused for both sections
+- Research cards show date + author; Workshop cards show neither
+- 1 card mobile / 2 md / 3 lg; arrows disable at track edges
+
+**Engineering Workshops — Build Night 4**
+- Added `content/workshops/build-night-4.mdx`: "Build Night 4 (HackSC-2024 Workshop): Voting dApp"
+- Removed date display from workshop cards (build-night-3 had no date, build-night-4 none either)
+- Pulled from main branch (was committed separately by user)
+
+**Deployment — Vercel + blockchainatusc.com**
+- Site deployed to `blockchainatusc.com` via Vercel (connected to GitHub repo)
+- Auto-deploys on every push to `main`; PR branches get preview URLs
+- DNS migrated from Webflow to Vercel in Namecheap (old Webflow records replaced with Vercel A + CNAME)
+- Webflow project preserved (not deleted) in case team wants to revert
+
+**Branch protection + contributor workflow**
+- GitHub branch protection enabled on `main`: require PR, require conversation resolution, block force pushes
+- `CONTRIBUTING.md`: branch naming, commit style, PR process, "what lives where" table
+- `.github/PULL_REQUEST_TEMPLATE.md`: auto-fills on every PR
+- `DEPLOYMENT.md`: Vercel setup, DNS, branch protection click-by-click
+
+---
+
 ## Session: 2026-03-26
 
 ### Completed
@@ -89,7 +124,7 @@
 | Navigation (Research, Events, Team) | ✅ Live |
 | Hero + teaser CTA | ✅ Live |
 | Partner Ticker (10 real partners) | ✅ Live |
-| Research grid (3 real Medium articles) | ✅ Live |
+| Research grid (live Medium RSS, auto-refreshes daily, author shown) | ✅ Live |
 | Events list (3 real events + links) | ✅ Live |
 | Team grid (11 real members + headshots) | ✅ Live |
 | Footer (real social links, correct email, Medium) | ✅ Live |
@@ -102,6 +137,6 @@
 
 ## Known Issues / Not Yet Fixed
 
-- Medium article fetch via `medium.com` direct URL returns 403 — RSS feed (`/feed/`) works. If research articles need updating, fetch `https://medium.com/feed/blockchain-at-usc`.
-- `FORMSPREE_ID` env var not confirmed set in production — newsletter form falls back to console.log if not configured.
-- Site has never been deployed; currently dev only.
+- `FORMSPREE_ID` env var not set in Vercel — newsletter form falls back to console.log in production.
+- Vercel status check not yet added to branch protection rule — add after first PR deploy surfaces the check name.
+- Medium RSS cache is 24h — newly published posts won't appear until cache expires or a "Clear cache and redeploy" is triggered in Vercel.

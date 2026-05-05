@@ -7,19 +7,19 @@
 
 **[NEXT]** Configure `FORMSPREE_ID` environment variable in production
 - Newsletter form silently falls back to console.log without it
-- Set in Vercel (or wherever deployed) env vars
+- Set in Vercel project → Settings → Environment Variables
 
-**[NEXT]** Deploy to production
-- Site has never been deployed; currently dev only
-- Likely target: Vercel (natural fit for Next.js)
+**[NEXT]** Add Vercel status check to branch protection rule
+- Go to GitHub → Settings → Rules → edit the main ruleset
+- Enable "Require status checks" → search for and add `Vercel` (appears after first PR deploy)
 
 **[SOON]** Add real cohort application link when Fall '26 applications open
 - Currently "Fall '26 Cohort Coming Soon" is a disabled `<span>` in Nav + Hero
 - When ready: swap for `<a>` with real link, restore hover styles, remove `opacity-70 cursor-default`
 
-**[SOON]** Update research articles when new Medium posts are published
-- Fetch `https://medium.com/feed/blockchain-at-usc` (RSS — works; direct URL returns 403)
-- Update/add MDX files in `content/research/`
+**[DONE]** ~~Deploy to production~~ — live at blockchainatusc.com via Vercel
+
+**[DONE]** ~~Update research articles when new Medium posts are published~~ — now auto-fetched from Medium RSS daily
 
 **[SOON]** Update events when new events are announced
 - Add/edit MDX files in `content/events/`
