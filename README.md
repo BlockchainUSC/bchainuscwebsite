@@ -45,7 +45,7 @@ Every push to `main` auto-deploys to [blockchainatusc.com](https://blockchainatu
 
 The site is deployed under the **BlockchainUSC org Vercel account** (use the club email, not a personal one). If you're taking over infra, get login credentials from the outgoing maintainer or request access to the shared account.
 
-- Project: `bchainuscwebsite`
+- Project: `bchainuscwebsite-org`
 - Production branch: `main`
 - Domain: `blockchainatusc.com` + `www.blockchainatusc.com`
 
