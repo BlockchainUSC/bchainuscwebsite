@@ -17,10 +17,10 @@ export async function POST(request: Request) {
     if (apiKey) {
       const resend = new Resend(apiKey);
 
-      // Add contact to Resend audience
-      const audienceId = process.env.RESEND_AUDIENCE_ID;
-      if (audienceId) {
-        await resend.contacts.create({ email, audienceId });
+      // Add contact to Resend segment
+      const segmentId = process.env.RESEND_SEGMENT_ID;
+      if (segmentId) {
+        await resend.contacts.create({ email, segments: [{ id: segmentId }] });
       }
 
       // Send confirmation email to the subscriber
