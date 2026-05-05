@@ -33,10 +33,16 @@ export async function POST(request: Request) {
       console.log("[newsletter] adding contact:", email);
     
 
-      const { data, error } = await resend.contacts.create({
+      const { data: contact, error: contactError } = await resend.contacts.create({
           email: email,
           unsubscribed: false,
       });
+
+      console.log("[newsletter] added contact:", contact);
+
+      if (contactError) {
+        console.error("[newsletter] error adding contact:", contactError);
+      }
 
 
             console.log("[newsletter] subscribing:", email);
