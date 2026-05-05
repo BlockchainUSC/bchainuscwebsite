@@ -32,7 +32,7 @@ export default function NewsletterForm() {
     <form onSubmit={handleSubmit} className="flex gap-2 max-w-[400px]">
       <input
         type="email"
-        placeholder="Enter email for research and club updates"
+        placeholder="Enter email for club updates"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
