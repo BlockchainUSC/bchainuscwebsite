@@ -2,6 +2,20 @@
 
 ---
 
+## Session: 2026-05-05
+
+### Completed
+
+**Newsletter — Resend integration**
+- Replaced Formspree with Resend (3k emails/mo free vs 50 submissions/mo)
+- `src/app/api/newsletter/route.ts`: sends branded confirmation email on signup
+- Email includes X/Twitter, Instagram, LinkedIn social links styled to match site aesthetic
+- Optionally adds contact to a Resend segment via `RESEND_SEGMENT_ID` env var
+- Requires `RESEND_API_KEY` with **Full Access** (not Sending only) — documented in README
+- Falls back to console.log if API key not set
+
+---
+
 ## Session: 2026-05-04
 
 ### Completed
@@ -129,7 +143,7 @@
 | Team grid (11 real members + headshots) | ✅ Live |
 | Footer (real social links, correct email, Medium) | ✅ Live |
 | Logo in nav | ✅ Live |
-| Newsletter form | ✅ Wired (Formspree via `FORMSPREE_ID` env var, console fallback) |
+| Newsletter form | ✅ Wired (Resend — requires `RESEND_API_KEY` + `RESEND_SEGMENT_ID` in Vercel env vars) |
 | Background animations (mesh + wireframe) | ✅ Live |
 | Mobile menu | ✅ Live |
 
