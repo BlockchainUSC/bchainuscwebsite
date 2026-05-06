@@ -89,7 +89,7 @@ export default function NewsletterModal() {
 
           {status === "success" ? (
             <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-4 font-mono text-sm text-emerald-300">
-              ✓ You&apos;re in. Check your inbox.
+              ✓ You&apos;re in. Stay tuned.
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
