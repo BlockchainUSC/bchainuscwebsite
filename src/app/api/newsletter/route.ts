@@ -1,5 +1,17 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import crypto from "crypto";
+
+function getMailchimpDC(apiKey: string) {
+  const parts = apiKey.split("-");
+  if (parts.length < 2) {
+    throw new Error("Invalid Mailchimp API key");
+  }
+  return parts[1];
+}
+
+function getSubscriberHash(email: string) {
+  return crypto.createHash("md5").update(email.toLowerCase().trim()).digest("hex");
+}
 
 export async function POST(request: Request) {
   try {
@@ -12,119 +24,55 @@ export async function POST(request: Request) {
       );
     }
 
-    console.log("DEPLOY CHECK 🚨")
+    const apiKey = process.env.MAILCHIMP_API_KEY;
+    const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
 
-    console.log("env check", {
-      vercelEnv: process.env.VERCEL_ENV,
-      hasResendKey: !!process.env.RESEND_API_KEY,
-      hasSegment: !!process.env.RESEND_SEGMENT_ID,
-    });
-
-    const apiKey = process.env.RESEND_API_KEY;
-
-    
-
-    if (apiKey) {
-      const resend = new Resend(apiKey);
-      
-
-      // Add contact
-      
-      console.log("[newsletter] adding contact:", email);
-    
-
-      const { data: contact, error: contactError } = await resend.contacts.create({
-          email: email,
-          unsubscribed: false,
+    if (!apiKey || !audienceId) {
+      console.error("[newsletter] Mailchimp env vars missing", {
+        hasMailchimpKey: !!apiKey,
+        hasAudienceId: !!audienceId,
       });
 
-      console.log("[newsletter] added contact:", contact);
-
-      if (contactError) {
-        console.error("[newsletter] error adding contact:", contactError);
-      }
-
-
-            console.log("[newsletter] subscribing:", email);
-
-      // Add contact to Resend segment
-      const segmentId = process.env.RESEND_SEGMENT_ID;
-      if (segmentId) {
-        const { data: _data, error: _error } = await resend.contacts.segments.add({
-          email: email,
-          segmentId: segmentId,
-        });
-
-        console.log("[newsletter] subscribed:", _data);
-
-        if (_error) {
-          console.error("[newsletter] error subscribing:", _error);
-        }
-      
-
-
-
-      // Send confirmation email to the subscriber
-       const { data: emailData, error: emailError } =  await resend.emails.send({
-        from: "Blockchain@USC <newsletter@blockchainatusc.com>",
-        to: email,
-        subject: "You're on the list — Blockchain@USC",
-        html: `
-          <!DOCTYPE html>
-          <html>
-            <body style="margin:0;padding:0;background:#0a0a0a;font-family:monospace;color:#e5e5e5;">
-              <table width="100%" cellpadding="0" cellspacing="0" style="background:#0a0a0a;padding:40px 0;">
-                <tr><td align="center">
-                  <table width="560" cellpadding="0" cellspacing="0" style="background:#111;border:1px solid #222;padding:40px;">
-                    <tr><td>
-                      <p style="margin:0 0 8px;font-size:11px;letter-spacing:0.15em;color:#888;text-transform:uppercase;">Blockchain@USC</p>
-                      <h1 style="margin:0 0 24px;font-size:22px;font-weight:500;color:#fff;letter-spacing:-0.02em;">You're on the list.</h1>
-                      <p style="margin:0 0 16px;font-size:14px;line-height:1.6;color:#aaa;">
-                        You'll hear from us when we publish new research — protocol analysis, DeFi deep-dives, and ecosystem breakdowns on our
-                        <a href="https://medium.com/blockchain-at-usc" style="color:#e8a0a0;text-decoration:none;">Medium</a>.
-                      </p>
-                      <p style="margin:0 0 32px;font-size:14px;line-height:1.6;color:#aaa;">
-                        In the meantime, follow us to stay in the loop:
-                      </p>
-                      <table cellpadding="0" cellspacing="0" style="margin-bottom:32px;">
-                        <tr>
-                          <td style="padding-right:16px;">
-                            <a href="https://x.com/0xBlockchainSC" style="display:inline-block;font-size:11px;font-family:monospace;letter-spacing:0.1em;text-transform:uppercase;color:#e5e5e5;text-decoration:none;border:1px solid #333;padding:8px 14px;">X / Twitter</a>
-                          </td>
-                          <td style="padding-right:16px;">
-                            <a href="https://www.instagram.com/blockchainatusc/" style="display:inline-block;font-size:11px;font-family:monospace;letter-spacing:0.1em;text-transform:uppercase;color:#e5e5e5;text-decoration:none;border:1px solid #333;padding:8px 14px;">Instagram</a>
-                          </td>
-                          <td>
-                            <a href="https://www.linkedin.com/company/trojancrypto/" style="display:inline-block;font-size:11px;font-family:monospace;letter-spacing:0.1em;text-transform:uppercase;color:#e5e5e5;text-decoration:none;border:1px solid #333;padding:8px 14px;">LinkedIn</a>
-                          </td>
-                        </tr>
-                      </table>
-                      <p style="margin:0;font-size:12px;color:#555;border-top:1px solid #222;padding-top:24px;">
-                        — Blockchain@USC &nbsp;·&nbsp; <a href="https://blockchainatusc.com" style="color:#555;text-decoration:none;">blockchainatusc.com</a>
-                      </p>
-                    </td></tr>
-                  </table>
-                </td></tr>
-              </table>
-            </body>
-          </html>
-        `,
-      });
-
-      console.log("[newsletter] email sent:", emailData);
-
-      if (emailError) {
-        console.error("[newsletter] error sending email:", emailError);
-      }
-    } else {
-      // No Resend configured — log for development
-      console.log("[newsletter] New signup:", email);
+      return NextResponse.json(
+        { error: "Newsletter service is not configured" },
+        { status: 500 }
+      );
     }
 
+    const dc = getMailchimpDC(apiKey);
+    const subscriberHash = getSubscriberHash(email);
+
+    const response = await fetch(
+      `https://${dc}.api.mailchimp.com/3.0/lists/${audienceId}/members/${subscriberHash}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Basic ${Buffer.from(`anystring:${apiKey}`).toString("base64")}`,
+        },
+        body: JSON.stringify({
+          email_address: email.trim().toLowerCase(),
+          status_if_new: "subscribed",
+          status: "subscribed",
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error("[newsletter] Mailchimp error:", data);
+      return NextResponse.json(
+        { error: "Failed to subscribe" },
+        { status: 500 }
+      );
+    }
+
+    console.log("[newsletter] subscribed:", email);
+
     return NextResponse.json({ success: true });
-  } 
-}
-  catch {
+  } catch (error) {
+    console.error("[newsletter] internal error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
