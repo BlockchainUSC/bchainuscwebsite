@@ -67,14 +67,13 @@ export default function Nav() {
                 {link.label}
               </a>
             ))}
-            <span
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded bg-cardinal text-white opacity-70 cursor-default select-none"
-              style={{
-                boxShadow: "0 0 20px rgba(153, 0, 0, 0.2)",
-              }}
+            <button
+              onClick={() => window.dispatchEvent(new Event("open-newsletter"))}
+              className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-white text-black transition-transform hover:scale-[1.03] active:scale-[0.98]"
             >
-              Fall &apos;26 Cohort Coming Soon
-            </span>
+              Subscribe
+              <span className="transition-transform group-hover:translate-x-0.5">→</span>
+            </button>
           </div>
 
           {/* Mobile hamburger */}
@@ -133,12 +132,15 @@ export default function Nav() {
             ))}
           </nav>
           <div className="mt-8">
-            <span
-              className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded bg-cardinal text-white opacity-70 cursor-default select-none"
-              style={{ boxShadow: "0 0 20px rgba(153, 0, 0, 0.2)" }}
+            <button
+              onClick={() => {
+                setMobileOpen(false);
+                window.dispatchEvent(new Event("open-newsletter"));
+              }}
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium rounded-full bg-white text-black"
             >
-              Fall &apos;26 Cohort Coming Soon
-            </span>
+              Subscribe to Newsletter →
+            </button>
           </div>
         </div>
       )}

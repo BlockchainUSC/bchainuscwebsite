@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTeamMembers } from "@/lib/content";
+import SectionHeader from "./SectionHeader";
 
 export default function TeamGrid() {
   const members = getTeamMembers();
@@ -11,28 +12,20 @@ export default function TeamGrid() {
       id="team"
       className="py-xl max-w-[1280px] mx-auto px-[var(--space-md)] z-10 relative"
     >
-      {/* Section header */}
-      <div className="mb-lg flex justify-between items-end pb-sm border-b border-[var(--border)]">
-        <h2 className="font-display text-[2rem] font-medium tracking-tight">
-          Core Contributors
-        </h2>
-        <div className="font-mono text-sm text-[var(--text-secondary)]">
-          TEAM_ROSTER
-        </div>
-      </div>
+      <SectionHeader
+        index="04 / TEAM"
+        title="Core Contributors"
+        tag="TEAM_ROSTER"
+        description="The students driving research, engineering, and community at Blockchain@USC."
+      />
 
-      {/* Team grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {members.map((member) => (
           <div
             key={member.name}
-            className="flex flex-col items-center text-center p-md transition-all duration-300 hover:-translate-y-1"
-            style={{
-              backgroundColor: "var(--surface)",
-              border: "1px solid var(--border)",
-            }}
+            className="group relative flex flex-col items-center text-center p-md rounded-xl border border-white/[0.08] bg-white/[0.015] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.04]"
           >
-            <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 bg-[var(--surface-hover)]">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 bg-[var(--surface-hover)] ring-1 ring-white/10 group-hover:ring-cardinal-bright/40 transition-all">
               <Image
                 src={member.image}
                 alt={member.name}

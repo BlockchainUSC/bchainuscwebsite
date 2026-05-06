@@ -1,4 +1,5 @@
 import WorkshopGrid from "./WorkshopGrid";
+import SectionHeader from "./SectionHeader";
 
 export default function Engineering() {
   return (
@@ -6,14 +7,12 @@ export default function Engineering() {
       id="engineering"
       className="py-xl relative max-w-[1280px] mx-auto px-[var(--space-md)] z-10"
     >
-      <div className="mb-lg flex justify-between items-end pb-sm border-b border-[var(--border)]">
-        <h2 className="font-display text-[2rem] font-medium tracking-tight">
-          Engineering
-        </h2>
-        <div className="font-mono text-sm text-[var(--text-secondary)]">
-          ENG.LOG
-        </div>
-      </div>
+      <SectionHeader
+        index="02 / ENGINEERING"
+        title="Build at the Edge"
+        tag="ENG.LOG"
+        description="Hands-on workshops and shipped projects: from Solidity fundamentals to ZK proofs"
+      />
 
       <WorkshopGrid />
     </section>
