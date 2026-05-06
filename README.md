@@ -51,11 +51,10 @@ The site is deployed under the **BlockchainUSC org Vercel account** (use the clu
 
 ### Newsletter (Resend)
 
-The newsletter signup form sends a branded confirmation email and optionally stores contacts in a Resend audience list.
+The newsletter signup form sends a branded confirmation email and stores contacts in a Resend audience list.
 
 **One-time setup:**
-1. Create an account at [resend.com](https://resend.com) using the club email
-2. **Domains** → Add `blockchainatusc.com` → Resend gives you DNS records to add in Namecheap → this lets you send from `newsletter@blockchainatusc.com`
+1. **Domains** → Add `blockchainatusc.com` → Resend gives you DNS records to add in Namecheap → this lets you send from `newsletter@blockchainatusc.com` (already added for now)
 3. **API Keys** → Create a key → copy it
 4. **Contacts → Segments** → Create a segment (e.g. "Newsletter") → copy the segment ID from the response or URL
 5. Add both to Vercel env vars (see below)
@@ -69,7 +68,7 @@ Set these in **Vercel → project → Settings → Environment Variables**:
 | Variable | Required | What it does |
 |---|---|---|
 | `RESEND_API_KEY` | Yes | Enables newsletter emails. Get from Resend → API Keys. **Must have Full Access** (not Sending only) or contacts won't save. |
-| `RESEND_SEGMENT_ID` | No | Saves signups to a contact segment. Get from Resend → Contacts → Segments → create one → copy the ID. |
+| `RESEND_SEGMENT_ID` | Yes | Saves signups to a contact segment. Get from Resend → Contacts → Segments → create one → copy the ID. |
 
 ### Domain (Namecheap)
 
@@ -97,6 +96,7 @@ If handing off to a new maintainer:
 1. Add them to the `BlockchainUSC` GitHub org as an admin
 2. Share the club Vercel account credentials (or add them as a member)
 3. Share the Namecheap login
-4. Update `data/team.json` with the new leadership
+4. Share the Resend Login to give them access to newsletter
+5. Update `data/team.json` with the new leadership
 
 </details>
