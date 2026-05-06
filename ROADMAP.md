@@ -5,10 +5,6 @@
 
 ## Prioritized Tasks
 
-**[NEXT]** Add `RESEND_API_KEY` + `RESEND_SEGMENT_ID` to Vercel environment variables
-- Newsletter emails won't send in production without these
-- Resend account must be set up with `blockchainatusc.com` domain verified
-- API key must have Full Access (not Sending only)
 
 **[NEXT]** Add Vercel status check to branch protection rule
 - Go to GitHub → Settings → Rules → edit the main ruleset
@@ -17,6 +13,12 @@
 **[SOON]** Add real cohort application link when Fall '26 applications open
 - Currently "Fall '26 Cohort Coming Soon" is a disabled `<span>` in Nav + Hero
 - When ready: swap for `<a>` with real link, restore hover styles, remove `opacity-70 cursor-default`
+
+
+
+**[DONE]** ~~Add `RESEND_API_KEY` + `RESEND_SEGMENT_ID` to Vercel environment variables~~
+- Newsletter emails won't send in production without these
+- Resend account must be set up with `blockchainatusc.com` domain verified - updated and Resend now works for newsletters
 
 **[DONE]** ~~Deploy to production~~ — live at blockchainatusc.com via Vercel
 
