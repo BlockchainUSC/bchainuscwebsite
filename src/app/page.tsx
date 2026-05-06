@@ -7,6 +7,8 @@ import ResearchGrid from "@/components/ResearchGrid";
 import Engineering from "@/components/Engineering";
 import EventList from "@/components/EventList";
 import TeamGrid from "@/components/TeamGrid";
+import NewsletterCTA from "@/components/NewsletterCTA";
+import NewsletterModal from "@/components/NewsletterModal";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,7 +23,9 @@ export default function Home() {
       <Engineering />
       <EventList />
       <TeamGrid />
+      <NewsletterCTA />
       <Footer />
+      <NewsletterModal />
     </>
   );
 }

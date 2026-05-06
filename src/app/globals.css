@@ -59,3 +59,112 @@ body {
 .card-hover-line:hover::before {
   transform: scaleX(1);
 }
+
+/* Hero grid background */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+}
+
+.hero-scanline {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.5) 0px,
+    rgba(255, 255, 255, 0.5) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* Animated gradient text */
+.hero-gradient-text {
+  background: linear-gradient(
+    110deg,
+    #ffffff 0%,
+    var(--usc-cardinal-bright) 35%,
+    #ff5b8a 55%,
+    #ffffff 100%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hero-shine 6s linear infinite;
+}
+
+@keyframes hero-shine {
+  to {
+    background-position: 250% center;
+  }
+}
+
+.hero-caret {
+  display: inline-block;
+  width: 4px;
+  height: 0.85em;
+  margin-left: 6px;
+  background: var(--usc-cardinal-bright);
+  vertical-align: -0.05em;
+  animation: hero-blink 1s steps(2) infinite;
+}
+
+@keyframes hero-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Marquee */
+.marquee-mask {
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.marquee-track {
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Modal animations */
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+.animate-modal-in {
+  animation: modal-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}

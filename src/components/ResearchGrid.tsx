@@ -1,6 +1,7 @@
 import { getAllResearch } from "@/lib/content";
 import { getMediumPosts } from "@/lib/medium";
 import CardCarousel from "./CardCarousel";
+import SectionHeader from "./SectionHeader";
 
 export default async function ResearchGrid() {
   const mediumPosts = await getMediumPosts();
@@ -13,15 +14,12 @@ export default async function ResearchGrid() {
       id="research"
       className="py-xl relative max-w-[1280px] mx-auto px-[var(--space-md)] z-10"
     >
-      {/* Section header */}
-      <div className="mb-lg flex justify-between items-end pb-sm border-b border-[var(--border)]">
-        <h2 className="font-display text-[2rem] font-medium tracking-tight">
-          Research
-        </h2>
-        <div className="font-mono text-sm text-[var(--text-secondary)]">
-          SYS.LOG_v2.4
-        </div>
-      </div>
+      <SectionHeader
+        index="01 / RESEARCH"
+        title="Protocol-Grade Research"
+        tag="SYS.LOG_v2.4"
+        description="Deep technical analysis of the protocols, primitives, and design patterns shaping the next era of on-chain systems."
+      />
 
       <CardCarousel items={posts} linkLabel="Read Paper" showDate />
     </section>
