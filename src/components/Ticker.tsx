@@ -4,7 +4,7 @@ const PARTNERS: { name: string; logo: string | null }[] = [
   { name: "Solana", logo: "/logos/solana.svg" },
   { name: "Optimism", logo: "/logos/optimism.svg" },
   { name: "Superscrypt", logo: "/logos/superscrypt.png" },
-  { name: "Dorm DAO", logo: null },
+  { name: "Dorm DAO", logo: "/logos/dormdao.png" },
   { name: "SUI", logo: "/logos/sui.svg" },
   { name: "Aptos", logo: "/logos/aptos.svg" },
   { name: "AVA Labs", logo: "/logos/avalanche.svg" },
