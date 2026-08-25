@@ -15,13 +15,13 @@ export default async function ResearchGrid() {
       className="py-xl relative max-w-[1280px] mx-auto px-[var(--space-md)] z-10"
     >
       <SectionHeader
-        index="01 / RESEARCH"
+        index="03 / RESEARCH"
         title="Protocol-Grade Research"
         tag="SYS.LOG_v2.4"
         description="Deep technical analysis of the protocols, primitives, and design patterns shaping the next era of on-chain systems."
       />
 
-      <CardCarousel items={posts} linkLabel="Read Paper" showDate />
+      <CardCarousel items={posts} linkLabel="Read Paper" showDate size="compact" />
     </section>
   );
 }

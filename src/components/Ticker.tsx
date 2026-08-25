@@ -1,16 +1,16 @@
-const PARTNERS = [
-  "VanEck",
-  "a16z",
-  "Solana",
-  "Optimism",
-  "Superscrypt",
-  "Dorm DAO",
-  "SUI",
-  "Aptos",
-  "AVA Labs",
-  "Akash",
-  "Kinexys by JPMC",
-  "Circle",
+const PARTNERS: { name: string; logo: string | null }[] = [
+  { name: "VanEck", logo: "/logos/vaneck.svg" },
+  { name: "a16z", logo: "/logos/a16z.png" },
+  { name: "Solana", logo: "/logos/solana.svg" },
+  { name: "Optimism", logo: "/logos/optimism.svg" },
+  { name: "Superscrypt", logo: "/logos/superscrypt.png" },
+  { name: "Dorm DAO", logo: null },
+  { name: "SUI", logo: "/logos/sui.svg" },
+  { name: "Aptos", logo: "/logos/aptos.svg" },
+  { name: "AVA Labs", logo: "/logos/avalanche.svg" },
+  { name: "Akash", logo: "/logos/akash.png" },
+  { name: "Kinexys by JPMC", logo: "/logos/kinexys.png" },
+  { name: "Circle", logo: "/logos/circle.svg" },
 ];
 
 export default function Ticker() {
@@ -45,14 +45,23 @@ export default function Ticker() {
       {/* Scrolling items — padded so they start after the label */}
       <div className="flex w-fit animate-ticker">
         <div className="flex items-center gap-16" style={{ paddingLeft: "160px" }}>
-          {items.map((partner, i) => (
-            <span
-              key={`${partner}-${i}`}
-              className="font-display font-bold text-xl text-[var(--text-secondary)] opacity-50 whitespace-nowrap transition-opacity duration-300 hover:opacity-100 hover:text-[var(--text-primary)]"
-            >
-              {partner}
-            </span>
-          ))}
+          {items.map((partner, i) =>
+            partner.logo ? (
+              <img
+                key={`${partner.name}-${i}`}
+                src={partner.logo}
+                alt={partner.name}
+                className="h-6 w-auto shrink-0 opacity-70 transition-opacity duration-300 hover:opacity-100"
+              />
+            ) : (
+              <span
+                key={`${partner.name}-${i}`}
+                className="font-display font-bold text-xl text-[var(--text-secondary)] opacity-50 whitespace-nowrap transition-opacity duration-300 hover:opacity-100 hover:text-[var(--text-primary)]"
+              >
+                {partner.name}
+              </span>
+            )
+          )}
         </div>
       </div>
     </div>

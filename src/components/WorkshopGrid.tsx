@@ -17,7 +17,7 @@ export default function WorkshopGrid() {
         </div>
       </div>
 
-      <CardCarousel items={workshops} linkLabel="View Repo" />
+      <CardCarousel items={workshops} linkLabel="View Repo" size="compact" />
     </div>
   );
 }

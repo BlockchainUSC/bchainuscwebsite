@@ -13,7 +13,7 @@ export default function TeamGrid() {
       className="py-xl max-w-[1280px] mx-auto px-[var(--space-md)] z-10 relative"
     >
       <SectionHeader
-        index="04 / TEAM"
+        index="05 / TEAM"
         title="Core Contributors"
         tag="TEAM_ROSTER"
         description="The students driving research, engineering, and community at Blockchain@USC."
