@@ -1,20 +1,10 @@
-import NewsletterForm from "./NewsletterForm";
-
-const INDEX_LINKS = [
-  { label: "Research", href: "#research" },
-  { label: "Workshops", href: "#engineering" },
-  { label: "Events", href: "#events" },
-  { label: "Team", href: "#team" },
-];
-
-const CONNECT_LINKS = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/trojancrypto", external: true },
-  { label: "Twitter", href: "https://x.com/0xBlockchainSC", external: true },
-  { label: "Instagram", href: "https://www.instagram.com/blockchainatusc/", external: true },
-  { label: "GitHub", href: "https://github.com/BlockchainUSC", external: true },
-  { label: "YouTube", href: "https://www.youtube.com/@blockchainusc", external: true },
-  { label: "Medium", href: "https://medium.com/blockchain-at-usc", external: true },
-  { label: "Email Us", href: "mailto:bchain@usc.edu", external: false },
+const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/trojancrypto", icon: "/logos/linkedin.png" },
+  { label: "X", href: "https://x.com/0xBlockchainSC", icon: "/logos/x.svg" },
+  { label: "Instagram", href: "https://www.instagram.com/blockchainatusc/", icon: "/logos/instagram.svg" },
+  { label: "GitHub", href: "https://github.com/BlockchainUSC", icon: "/logos/github.svg" },
+  { label: "YouTube", href: "https://www.youtube.com/@blockchainusc", icon: "/logos/youtube.svg" },
+  { label: "Medium", href: "https://medium.com/blockchain-at-usc", icon: "/logos/medium.svg" },
 ];
 
 export default function Footer() {
@@ -23,67 +13,56 @@ export default function Footer() {
       className="z-10 relative"
       style={{
         borderTop: "1px solid var(--border)",
-        padding: "var(--space-xl) 0 var(--space-md)",
+        padding: "var(--space-md) 0",
         background: "var(--bg-base)",
       }}
     >
       <div className="max-w-[1280px] mx-auto px-[var(--space-md)]">
         {/* Footer grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-lg mb-lg">
-          {/* Brand */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-lg items-center mb-md">
+          {/* Description */}
           <div>
-            <h4 className="font-display text-2xl mb-sm">Blockchain@USC</h4>
-            <p className="text-[var(--text-secondary)] text-sm max-w-[300px] mb-md">
-              Advancing the frontier of decentralized systems through rigorous
-              research and development at the University of Southern California.
+            <p className="text-[var(--text-secondary)] text-sm max-w-[340px]">
+              Join us on our journey of advancing decentralized systems
+              through rigorous research and development at the University of
+              Southern California.
             </p>
-            <NewsletterForm />
           </div>
 
-          {/* Links */}
-          <div className="flex gap-16 md:justify-end">
-            <div>
-              <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest mb-4">
-                Index
-              </h5>
-              <ul className="list-none flex flex-col gap-3">
-                {INDEX_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      className="text-[var(--text-primary)] no-underline text-sm transition-colors duration-200 hover:text-cardinal-bright"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          {/* Socials + Email */}
+          <div className="flex flex-col md:items-end gap-4">
+            <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+              Socials
+            </h5>
+            <div className="flex items-center gap-5">
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.label}
+                  className="opacity-60 transition-opacity duration-200 hover:opacity-100"
+                >
+                  <img src={link.icon} alt={link.label} className="h-5 w-5" />
+                </a>
+              ))}
             </div>
-
-            <div>
-              <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest mb-4">
-                Connect
-              </h5>
-              <ul className="list-none flex flex-col gap-3">
-                {CONNECT_LINKS.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-[var(--text-primary)] no-underline text-sm transition-colors duration-200 hover:text-cardinal-bright"
-                      {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <p className="text-sm">
+              <span className="text-[var(--text-secondary)]">email: </span>
+              <a
+                href="mailto:bchain@usc.edu"
+                className="text-[var(--text-primary)] no-underline font-medium transition-colors duration-200 hover:text-cardinal-bright"
+              >
+                bchain@usc.edu
+              </a>
+            </p>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col sm:flex-row justify-between items-center pt-md font-mono text-xs text-[var(--text-secondary)]"
+          className="flex flex-col sm:flex-row justify-between items-center pt-4 font-mono text-xs text-[var(--text-secondary)]"
           style={{ borderTop: "1px solid var(--border)" }}
         >
           <span>&copy; 2026 Blockchain@USC. All rights reserved.</span>
