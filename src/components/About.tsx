@@ -50,7 +50,7 @@ export default function About() {
         <div className="lg:col-span-3 flex flex-col gap-5 text-[var(--text-secondary)] text-base leading-relaxed">
           <p>
             Blockchain@USC is one of the oldest crypto student organizations
-            in the country broken down into two main functions:
+            in the country. We are broken down into two main functions:
           </p>
 
           <div>
