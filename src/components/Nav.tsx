@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const NAV_LINKS = [
+  { label: "About", href: "#about" },
   { label: "Investments", href: "#investments" },
   { label: "Research", href: "#research" },
   { label: "Projects", href: "#projects" },
@@ -12,14 +13,7 @@ const NAV_LINKS = [
 
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -30,27 +24,23 @@ export default function Nav() {
 
   return (
     <>
-      <nav
-        className="fixed top-0 left-0 w-full z-[100] transition-all duration-300"
-        style={{
-          padding: "var(--space-md) 0",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          borderBottom: scrolled
-            ? "1px solid rgba(255,255,255,0.05)"
-            : "1px solid transparent",
-          background: scrolled ? "rgba(3,3,3,0.8)" : "transparent",
-        }}
-      >
-        <div className="max-w-[1280px] mx-auto px-[var(--space-md)] flex justify-between items-center">
+      <nav className="fixed top-0 left-0 w-full z-[100] pt-4 px-[var(--space-md)]">
+        <div
+          className="max-w-[1280px] mx-auto rounded-full border border-white/10 flex justify-between items-center px-4 py-2.5"
+          style={{
+            background: "rgba(3,3,3,0.75)",
+            backdropFilter: "blur(16px)",
+          }}
+        >
           <a
             href="#"
-            className="font-display font-bold text-2xl tracking-tight text-[var(--text-primary)] no-underline flex items-center gap-3"
+            className="font-display font-bold text-lg tracking-tight text-[var(--text-primary)] no-underline flex items-center gap-0"
           >
             <Image
               src="/logo.png"
               alt="Blockchain@USC logo"
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               className="rounded-sm"
             />
             <span>
@@ -59,12 +49,12 @@ export default function Nav() {
           </a>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[var(--text-secondary)] no-underline text-base font-medium transition-colors duration-200 hover:text-[var(--text-primary)]"
+                className="text-[var(--text-secondary)] no-underline text-sm font-medium transition-colors duration-200 hover:text-[var(--text-primary)]"
               >
                 {link.label}
               </a>
