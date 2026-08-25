@@ -70,7 +70,7 @@ export default function Hero() {
           <button
             className="group relative inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium rounded-full bg-white text-black overflow-hidden transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
-            <span className="relative z-10">Apply · Fall &apos;26</span>
+            <span className="relative z-10">Apply Fall &apos;26</span>
             <span className="relative z-10 transition-transform group-hover:translate-x-0.5">
               →
             </span>
