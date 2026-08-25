@@ -24,9 +24,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
-        mono: ["var(--font-space-mono)", "monospace"],
+        sans: ["var(--font-source-sans-3)", "system-ui", "sans-serif"],
+        display: ["var(--font-source-sans-3)", "system-ui", "sans-serif"],
+        mono: ["var(--font-source-sans-3)", "monospace"],
       },
       spacing: {
         xs: "0.5rem",
