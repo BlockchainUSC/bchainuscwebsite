@@ -67,15 +67,18 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex gap-4 justify-center items-center flex-wrap">
-          <button
-            className="group relative inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium rounded-full bg-white text-black overflow-hidden transition-transform hover:scale-[1.02] active:scale-[0.98]"
+          <a
+            href="https://forms.gle/gWe2483cE4vBqDJM9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium rounded-full bg-white text-black overflow-hidden no-underline transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
-            <span className="relative z-10">Apply · Fall &apos;26</span>
+            <span className="relative z-10">Apply Fall &apos;26</span>
             <span className="relative z-10 transition-transform group-hover:translate-x-0.5">
               →
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-cardinal-bright to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </button>
+          </a>
           <a
             href="https://uscblockchainconf.com/"
             target="_blank"
