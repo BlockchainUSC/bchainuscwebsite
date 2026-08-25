@@ -58,12 +58,12 @@ function StatBox({
   primaryValue: string;
 }) {
   return (
-    <div className="rounded-lg border border-white/[0.08] bg-white/[0.02] p-4">
+    <div className="rounded-lg border border-black/[0.08] bg-black/[0.02] p-4">
       <div className="flex items-center justify-between mb-3">
         <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--text-secondary)]">
           {data.label}
         </div>
-        <div className="font-mono text-[10px] text-white/40">{data.period}</div>
+        <div className="font-mono text-[10px] text-black/40">{data.period}</div>
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div>
@@ -103,12 +103,12 @@ export default function Investments() {
         index="02 / INVESTMENTS"
         title="Capital at Work"
         tag="TREASURY_LOG"
-        description="Blockchain@USC manages a live on-chain portfolio through Dorm Capital, and runs hands-on trading programs for the USC community."
+        description="Blockchain@USC manages a live onchain portfolio through Dorm Capital, and runs hands-on trading programs for the USC community."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left half — Dorm Capital */}
-        <div className="rounded-xl border border-white/[0.08] bg-white/[0.015] backdrop-blur-sm p-6">
+        <div className="rounded-xl border border-black/[0.08] bg-black/[0.015] backdrop-blur-sm p-6">
           <div className="mb-5">
             <div className="flex items-center gap-4 flex-wrap mb-3">
               <h3 className="font-display text-xl font-semibold tracking-tight">
@@ -118,7 +118,7 @@ export default function Investments() {
                 href="https://www.dormdao.io/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.15em] uppercase text-cardinal-bright no-underline hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.15em] uppercase text-cardinal-bright no-underline hover:text-[var(--text-primary)] transition-colors"
               >
                 DormDAO
                 <span aria-hidden="true">↗</span>
@@ -132,7 +132,7 @@ export default function Investments() {
             >
               DormDAO is a student-run investment DAO uniting 17 university
               blockchain clubs across the US, Canada, and the UK. Each school
-              manages its own on-chain portfolio, competing on a transparent,
+              manages its own onchain portfolio, competing on a transparent,
               real-time leaderboard — giving the next generation of crypto
               builders real capital and real experience before they graduate.
             </a>
@@ -147,14 +147,14 @@ export default function Investments() {
             href="https://www.dormdao.io/leaderboard"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 text-xs text-[var(--text-secondary)] no-underline hover:text-white transition-colors inline-flex items-center gap-1"
+            className="mt-3 text-xs text-[var(--text-secondary)] no-underline hover:text-[var(--text-primary)] transition-colors inline-flex items-center gap-1"
           >
             Full leaderboard <span aria-hidden="true">↗</span>
           </a>
         </div>
 
         {/* Right half — Trading */}
-        <div className="rounded-xl border border-white/[0.08] bg-white/[0.015] backdrop-blur-sm p-6">
+        <div className="rounded-xl border border-black/[0.08] bg-black/[0.015] backdrop-blur-sm p-6">
           <div className="mb-5">
             <h3 className="font-display text-xl font-semibold tracking-tight mb-3">
               Trading
@@ -168,7 +168,7 @@ export default function Investments() {
           <div className="flex flex-col gap-3">
             {TRADING_PROGRAMS.map((program) => {
               const cardClass =
-                "group rounded-lg border border-white/[0.08] bg-white/[0.02] p-4 no-underline transition-all duration-300 hover:border-white/20 hover:bg-white/[0.04]";
+                "group rounded-lg border border-black/[0.08] bg-black/[0.02] p-4 no-underline transition-all duration-300 hover:border-black/20 hover:bg-black/[0.04]";
               const content = (
                 <>
                   <div className="flex items-center justify-between mb-2">
@@ -176,7 +176,7 @@ export default function Investments() {
                       {program.title}
                     </h4>
                     {program.href && (
-                      <span className="text-[var(--text-secondary)] group-hover:text-white transition-colors">
+                      <span className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
                         ↗
                       </span>
                     )}

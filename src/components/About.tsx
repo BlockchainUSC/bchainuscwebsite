@@ -77,7 +77,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="border-t border-white/[0.08] my-1" />
+          <div className="border-t border-black/[0.08] my-1" />
 
           <p>
             Members also get an education program that assumes zero
@@ -100,7 +100,7 @@ export default function About() {
         </div>
 
         {/* Right — Application Process */}
-        <div className="lg:col-span-2 rounded-xl border border-white/[0.08] bg-white/[0.015] backdrop-blur-sm p-lg lg:sticky lg:top-28">
+        <div className="lg:col-span-2 rounded-xl border border-black/[0.08] bg-black/[0.015] backdrop-blur-sm p-lg lg:sticky lg:top-28">
           <h3 className="font-display text-lg font-semibold tracking-tight mb-6">
             Application Process
           </h3>
@@ -109,7 +109,7 @@ export default function About() {
               <div
                 key={step.label}
                 className={`pl-4 relative ${
-                  step.emphasize ? "border-l-2 border-cardinal-bright" : "border-l-2 border-white/[0.08]"
+                  step.emphasize ? "border-l-2 border-cardinal-bright" : "border-l-2 border-black/[0.08]"
                 }`}
               >
                 <div className="font-mono text-[11px] tracking-wider text-[var(--text-secondary)]">

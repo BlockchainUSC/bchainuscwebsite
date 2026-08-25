@@ -18,7 +18,7 @@ export default async function ResearchGrid() {
         index="03 / RESEARCH"
         title="Protocol-Grade Research"
         tag="SYS.LOG_v2.4"
-        description="Deep technical analysis of the protocols, primitives, and design patterns shaping the next era of on-chain systems."
+        description="Deep technical analysis of the protocols, primitives, and design patterns shaping the next era of onchain systems."
       />
 
       <CardCarousel items={posts} linkLabel="Read Paper" showDate size="compact" />

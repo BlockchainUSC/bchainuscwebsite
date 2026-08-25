@@ -55,7 +55,7 @@ export default function NewsletterModal() {
 
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-[480px] rounded-2xl border border-white/10 bg-[var(--bg-base)] p-8 animate-modal-in overflow-hidden"
+        className="relative w-full max-w-[480px] rounded-2xl border border-black/10 bg-[var(--surface)] p-8 animate-modal-in overflow-hidden shadow-[0_20px_60px_-15px_rgba(20,10,30,0.35)]"
       >
         {/* glow */}
         <div
@@ -70,7 +70,7 @@ export default function NewsletterModal() {
         <button
           onClick={() => setOpen(false)}
           aria-label="Close"
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full border border-white/10 text-[var(--text-secondary)] hover:text-white hover:border-white/30 transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full border border-black/10 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-black/30 transition-colors"
         >
           ✕
         </button>
@@ -88,7 +88,7 @@ export default function NewsletterModal() {
           </p>
 
           {status === "success" ? (
-            <div className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-4 font-mono text-sm text-emerald-300">
+            <div className="rounded-lg border border-emerald-600/30 bg-emerald-600/10 p-4 font-mono text-sm text-emerald-700">
               ✓ You&apos;re in. Check your inbox.
             </div>
           ) : (
@@ -99,17 +99,17 @@ export default function NewsletterModal() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="px-4 py-3 rounded-lg font-mono text-sm outline-none transition-colors text-white bg-white/[0.03] border border-white/10 focus:border-white/30"
+                className="px-4 py-3 rounded-lg font-mono text-sm outline-none transition-colors text-[var(--text-primary)] bg-black/[0.03] border border-black/10 focus:border-black/30"
               />
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="px-6 py-3 rounded-lg text-sm font-medium bg-white text-black transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60"
+                className="px-6 py-3 rounded-lg text-sm font-medium bg-cardinal-bright text-white transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60"
               >
                 {status === "loading" ? "Subscribing…" : "Subscribe →"}
               </button>
               {status === "error" && (
-                <p className="text-xs text-rose-400 font-mono">
+                <p className="text-xs text-rose-600 font-mono">
                   Something went wrong. Try again.
                 </p>
               )}

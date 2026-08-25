@@ -20,9 +20,9 @@ export default function Ticker() {
     <div
       className="relative overflow-hidden z-10"
       style={{
-        borderTop: "1px solid var(--border)",
-        borderBottom: "1px solid var(--border)",
-        background: "rgba(17, 17, 17, 0.4)",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
+        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        background: "#6b1420",
         padding: "var(--space-sm) 0",
       }}
     >
@@ -31,13 +31,13 @@ export default function Ticker() {
         className="absolute left-0 top-0 h-full z-[2] pointer-events-none"
         style={{
           width: "140px",
-          background: "linear-gradient(to right, rgba(17,17,17,0.95) 60%, transparent 100%)",
+          background: "linear-gradient(to right, #6b1420 60%, transparent 100%)",
         }}
       />
 
       {/* Network label — sits on top of the fade */}
       <div className="absolute left-[var(--space-md)] top-1/2 -translate-y-1/2 z-[3]">
-        <span className="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-[var(--text-secondary)]">
+        <span className="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-white/60">
           Network
         </span>
       </div>
@@ -56,7 +56,7 @@ export default function Ticker() {
             ) : (
               <span
                 key={`${partner.name}-${i}`}
-                className="font-display font-bold text-xl text-[var(--text-secondary)] opacity-50 whitespace-nowrap transition-opacity duration-300 hover:opacity-100 hover:text-[var(--text-primary)]"
+                className="font-display font-bold text-xl text-white/70 opacity-50 whitespace-nowrap transition-opacity duration-300 hover:opacity-100 hover:text-white"
               >
                 {partner.name}
               </span>

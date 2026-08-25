@@ -26,9 +26,9 @@ export default function Nav() {
     <>
       <nav className="fixed top-0 left-0 w-full z-[100] pt-4 px-[var(--space-md)]">
         <div
-          className="max-w-[1280px] mx-auto rounded-full border border-white/10 flex justify-between items-center px-4 py-2.5"
+          className="max-w-[1280px] mx-auto rounded-full border border-black/10 flex justify-between items-center px-4 py-2.5 shadow-[0_4px_24px_-8px_rgba(20,10,30,0.15)]"
           style={{
-            background: "rgba(3,3,3,0.75)",
+            background: "rgba(255,255,255,0.7)",
             backdropFilter: "blur(16px)",
           }}
         >
@@ -61,7 +61,7 @@ export default function Nav() {
             ))}
             <button
               onClick={() => window.dispatchEvent(new Event("open-newsletter"))}
-              className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-full bg-white text-black transition-transform hover:scale-[1.03] active:scale-[0.98]"
+              className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-full bg-cardinal-bright text-white transition-transform hover:scale-[1.03] active:scale-[0.98]"
             >
               Subscribe
               <span className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -129,7 +129,7 @@ export default function Nav() {
                 setMobileOpen(false);
                 window.dispatchEvent(new Event("open-newsletter"));
               }}
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium rounded-full bg-white text-black"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium rounded-full bg-cardinal-bright text-white"
             >
               Subscribe to Newsletter →
             </button>
