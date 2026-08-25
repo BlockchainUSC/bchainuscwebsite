@@ -43,15 +43,19 @@ export default function TeamGrid() {
 
             {/* Social links */}
             <div className="flex gap-3 mt-3">
-              {member.twitter && (
+              {member.twitter ? (
                 <a
                   href={member.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] text-xs font-mono transition-colors"
                 >
-                  Twitter
+                  X
                 </a>
+              ) : (
+                <span className="text-[var(--text-secondary)]/40 text-xs font-mono cursor-default">
+                  X
+                </span>
               )}
               {member.linkedin && (
                 <a

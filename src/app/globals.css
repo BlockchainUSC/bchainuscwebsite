@@ -15,10 +15,6 @@
   --mesh-color-1: rgba(102, 0, 0, 0.3);
   --mesh-color-2: rgba(153, 0, 0, 0.25);
 
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
-  --font-mono: "Space Mono", monospace;
-
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
@@ -35,7 +31,7 @@
 body {
   background-color: var(--bg-base);
   color: var(--text-primary);
-  font-family: var(--font-sans);
+  font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;

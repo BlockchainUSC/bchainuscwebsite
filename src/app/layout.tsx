@@ -1,23 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, Space_Mono } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const sourceSans3 = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-space-mono",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-source-sans-3",
   display: "swap",
 });
 
@@ -35,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${spaceMono.variable} antialiased`}
+        className={`${sourceSans3.variable} antialiased`}
       >
         {children}
       </body>

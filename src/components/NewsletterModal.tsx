@@ -80,11 +80,11 @@ export default function NewsletterModal() {
             ● Subscribe
           </div>
           <h3 className="font-display text-2xl font-semibold tracking-tight mb-2">
-            Get the dispatch.
+            Join the mailing list
           </h3>
           <p className="text-[var(--text-secondary)] text-sm mb-6 leading-relaxed">
-            Monthly drop: new research, upcoming events, applications, and the
-            occasional alpha. No spam.
+            For updates on club events, guest speakers, application deadlines, and our
+            monthly write up.
           </p>
 
           {status === "success" ? (

@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-const TAGS = ["Protocol Research", "Venture Building", "On-Chain Engineering"];
-
 function useTypewriter(words: string[], speed = 80, hold = 1600) {
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
@@ -49,32 +47,8 @@ export default function Hero() {
       <div className="absolute inset-0 hero-scanline pointer-events-none opacity-[0.03]" />
 
       <div className="relative z-10 max-w-[1280px] w-full mx-auto">
-        {/* Status pill */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.02] backdrop-blur-sm font-mono text-[11px] tracking-wider uppercase text-[var(--text-secondary)]">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
-            </span>
-            <span>Block</span>
-            <span className="text-white/80 tabular-nums">#21,847,392</span>
-            <span className="w-px h-3 bg-white/10" />
-            <span>USC · Spring 2026</span>
-          </div>
-        </div>
-
-        {/* Tags */}
-        <div className="flex justify-center flex-wrap gap-x-6 gap-y-2 mb-8 font-mono text-[11px] tracking-[0.2em] uppercase text-[var(--text-secondary)]">
-          {TAGS.map((tag) => (
-            <span key={tag} className="flex items-center gap-2">
-              <span className="text-cardinal-bright">✦</span>
-              {tag}
-            </span>
-          ))}
-        </div>
-
         {/* Heading */}
-        <h1 className="font-display font-bold leading-[0.98] tracking-[-0.03em] text-center mb-8 text-[clamp(3rem,8vw,7rem)]">
+        <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-center mb-10 text-[clamp(2.25rem,4.8vw,5rem)]">
           <span className="block">Pioneering the</span>
           <span className="block">
             Future of{" "}
@@ -86,7 +60,7 @@ export default function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-[clamp(1.05rem,1.5vw,1.25rem)] text-[var(--text-secondary)] max-w-[640px] mx-auto mb-12 leading-relaxed text-center">
+        <p className="text-[clamp(1.1rem,1.6vw,1.375rem)] text-[var(--text-secondary)] max-w-[700px] mx-auto mb-14 leading-relaxed text-center">
           USC&apos;s premier student-led organization for blockchain research,
           rigorous protocol analysis, and accelerating Web3 founders.
         </p>
@@ -103,10 +77,12 @@ export default function Hero() {
             <span className="absolute inset-0 bg-gradient-to-r from-cardinal-bright to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>
           <a
-            href="#research"
+            href="https://uscblockchainconf.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium rounded-full border border-white/10 bg-white/[0.02] text-white no-underline backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/[0.05]"
           >
-            <span>Read Our Research</span>
+            <span>Our Conference</span>
             <span className="text-[var(--text-secondary)] group-hover:text-white transition-colors">
               ↗
             </span>
