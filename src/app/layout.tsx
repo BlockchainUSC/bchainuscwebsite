@@ -10,7 +10,7 @@ const sourceSans3 = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Blockchain@USC | Research & Development",
+  title: "Blockchain@USC",
   description:
     "USC's premier student-led organization dedicated to blockchain research, rigorous protocol analysis, and accelerating Web3 founders.",
 };
