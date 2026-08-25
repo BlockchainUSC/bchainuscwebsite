@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const NAV_LINKS = [
+  { label: "Investments", href: "#investments" },
   { label: "Research", href: "#research" },
-  { label: "Engineering", href: "#engineering" },
-  { label: "Events", href: "#events" },
+  { label: "Projects", href: "#projects" },
   { label: "Team", href: "#team" },
 ];
 
@@ -44,32 +44,34 @@ export default function Nav() {
         <div className="max-w-[1280px] mx-auto px-[var(--space-md)] flex justify-between items-center">
           <a
             href="#"
-            className="font-display font-bold text-xl tracking-tight text-[var(--text-primary)] no-underline flex items-center gap-3"
+            className="font-display font-bold text-2xl tracking-tight text-[var(--text-primary)] no-underline flex items-center gap-3"
           >
             <Image
               src="/logo.png"
               alt="Blockchain@USC logo"
-              width={36}
-              height={36}
+              width={40}
+              height={40}
               className="rounded-sm"
             />
-            Blockchain<span className="text-cardinal-bright">@</span>USC
+            <span>
+              Blockchain<span className="text-cardinal-bright">@</span>USC
+            </span>
           </a>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-12">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[var(--text-secondary)] no-underline text-sm font-medium transition-colors duration-200 hover:text-[var(--text-primary)]"
+                className="text-[var(--text-secondary)] no-underline text-base font-medium transition-colors duration-200 hover:text-[var(--text-primary)]"
               >
                 {link.label}
               </a>
             ))}
             <button
               onClick={() => window.dispatchEvent(new Event("open-newsletter"))}
-              className="group inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-white text-black transition-transform hover:scale-[1.03] active:scale-[0.98]"
+              className="group inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-full bg-white text-black transition-transform hover:scale-[1.03] active:scale-[0.98]"
             >
               Subscribe
               <span className="transition-transform group-hover:translate-x-0.5">→</span>

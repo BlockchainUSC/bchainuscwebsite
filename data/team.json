@@ -1,77 +1,46 @@
 [
   {
-    "name": "Noah Neri",
-    "role": "Co-President",
-    "image": "/team/headshots/noah_neri.png",
-    "linkedin": "https://www.linkedin.com/in/noah-neri-14a975251/",
-    "twitter": "https://x.com/2nnatural"
-  },
-  {
-    "name": "Rishab Rai",
-    "role": "Co-President",
-    "image": "/team/headshots/rishab_rai.jpg",
-    "linkedin": "https://www.linkedin.com/in/rishabrai/",
-    "twitter": "https://x.com/rishabsrai"
-  },
-  {
-    "name": "Shriya Upadhyay",
-    "role": "Director of Engineering",
-    "image": "/team/headshots/shriya_upadhyay.jpg",
-    "linkedin": "https://www.linkedin.com/in/shriyaupadhyay/",
-    "twitter": "https://x.com/ushriya19"
+    "name": "Sebastian Sampedro",
+    "role": "Director of Research/Investments",
+    "image": "/team/headshots/sebastian_sampedro_illustrated.jpg",
+    "linkedin": "https://www.linkedin.com/in/sxsampedro/",
+    "twitter": "https://x.com/donostiako_"
   },
   {
     "name": "Alp Guneri",
     "role": "Director of Governance/On-Chain Consulting",
-    "image": "/team/headshots/alp_guneri.jpg",
+    "image": "/team/headshots/alp_guneri_illustrated.jpg",
     "linkedin": "https://www.linkedin.com/in/alpguneri/",
     "twitter": "https://x.com/GuneriAlp"
   },
   {
-    "name": "Sebastian Sampedro",
-    "role": "Director of Research/Investments",
-    "image": "/team/headshots/sebastian_sampedro.png",
-    "linkedin": "https://www.linkedin.com/in/sxsampedro/",
-    "twitter": "https://x.com/0xblockchainsc"
+    "name": "Austin Lee",
+    "role": "Director of Projects",
+    "image": "/team/headshots/austin_lee.jpg",
+    "linkedin": "https://www.linkedin.com/in/yuanchiaolee/"
   },
   {
-    "name": "Alon Mutter",
-    "role": "Director of Marketing",
-    "image": "/team/headshots/alon_mutter.jpg",
-    "linkedin": "https://www.linkedin.com/in/alon-mutter-4367a12b3/",
-    "twitter": "https://x.com/mutter88126"
+    "name": "Andrew Paik",
+    "role": "Director of Research and Investments",
+    "image": "/team/headshots/andrew_paik.jpg",
+    "linkedin": "https://www.linkedin.com/in/andrew-paik-9b78882b3/"
+  },
+  {
+    "name": "Bhargav Cowdary",
+    "role": "Head of Community",
+    "image": "/team/headshots/bhargav_cowdary.jpg",
+    "linkedin": "https://www.linkedin.com/in/bhargav-chowdary0/"
+  },
+  {
+    "name": "Lindsey Ren",
+    "role": "Head of Partnerships",
+    "image": "/team/headshots/lindsey_ren.jpg",
+    "linkedin": "https://www.linkedin.com/in/lindsey-ren/"
   },
   {
     "name": "Melanie Aguirre",
-    "role": "Director of Recruitment",
-    "image": "/team/headshots/melanie_aguirre.jpg",
+    "role": "Director of Marketing",
+    "image": "/team/headshots/melanie_aguirre_illustrated.jpg",
     "linkedin": "https://www.linkedin.com/in/melanie-aguirre05/"
-  },
-  {
-    "name": "Abba Wada",
-    "role": "Treasurer",
-    "image": "/team/headshots/abba_wada.jpg",
-    "linkedin": "https://www.linkedin.com/in/abba-wada-63b999266/"
-  },
-  {
-    "name": "Melanie Rosas",
-    "role": "Director of Community",
-    "image": "/team/headshots/melanie_rosas.png",
-    "linkedin": "https://www.linkedin.com/company/trojancrypto/",
-    "twitter": "https://x.com/0xblockchainsc"
-  },
-  {
-    "name": "Hersh Joshi",
-    "role": "Director of Events",
-    "image": "/team/headshots/hersh_joshi.jpg",
-    "linkedin": "https://www.linkedin.com/in/hershnj/",
-    "twitter": "https://x.com/Hershjdev"
-  },
-  {
-    "name": "Nitzan Saar",
-    "role": "Director of Partnerships",
-    "image": "/team/headshots/nitzan_saar.png",
-    "linkedin": "https://www.linkedin.com/in/nitzans/",
-    "twitter": "https://x.com/nitzmode"
   }
 ]
