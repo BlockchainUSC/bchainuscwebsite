@@ -33,7 +33,7 @@ function useTypewriter(words: string[], speed = 80, hold = 1600) {
 
 export default function Hero() {
   const typed = useTypewriter([
-    "On-Chain Systems",
+    "Onchain Systems",
     "Protocol Design",
     "Web3 Founders",
     "Decentralized Finance",
@@ -48,7 +48,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-[1280px] w-full mx-auto">
         {/* Heading */}
-        <h1 className="font-display font-bold leading-[1.05] tracking-[-0.03em] text-center mb-10 text-[clamp(2.25rem,4.8vw,5rem)]">
+        <h1 className="font-sans font-extrabold leading-[1.05] tracking-tight text-center mb-8 text-[clamp(2.25rem,6vw,5.5rem)] text-[var(--text-primary)]">
           <span className="block">Pioneering the</span>
           <span className="block">
             Future of{" "}
@@ -71,27 +71,26 @@ export default function Hero() {
             href="https://forms.gle/gWe2483cE4vBqDJM9"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium rounded-full bg-white text-black overflow-hidden no-underline transition-transform hover:scale-[1.02] active:scale-[0.98]"
+            className="group relative inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium rounded-full bg-cardinal-bright text-white overflow-hidden no-underline transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
             <span className="relative z-10">Apply Fall &apos;26</span>
             <span className="relative z-10 transition-transform group-hover:translate-x-0.5">
               →
             </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-cardinal-bright to-rose-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <span className="absolute inset-0 bg-gradient-to-r from-cardinal to-cardinal-bright opacity-0 group-hover:opacity-100 transition-opacity" />
           </a>
           <a
             href="https://uscblockchainconf.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium rounded-full border border-white/10 bg-white/[0.02] text-white no-underline backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/[0.05]"
+            className="group inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium rounded-full border border-black/10 bg-white/60 text-[var(--text-primary)] no-underline backdrop-blur-sm transition-all hover:border-black/20 hover:bg-white"
           >
             <span>Our Conference</span>
-            <span className="text-[var(--text-secondary)] group-hover:text-white transition-colors">
+            <span className="text-[var(--text-secondary)] group-hover:text-cardinal-bright transition-colors">
               ↗
             </span>
           </a>
         </div>
-
       </div>
     </header>
   );

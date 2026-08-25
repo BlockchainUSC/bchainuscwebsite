@@ -12,9 +12,8 @@ export default function Footer() {
     <footer
       className="z-10 relative"
       style={{
-        borderTop: "1px solid var(--border)",
         padding: "var(--space-md) 0",
-        background: "var(--bg-base)",
+        background: "#6b1420",
       }}
     >
       <div className="max-w-[1280px] mx-auto px-[var(--space-md)]">
@@ -22,7 +21,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-lg items-center mb-md">
           {/* Description */}
           <div>
-            <p className="text-[var(--text-secondary)] text-sm max-w-[340px]">
+            <p className="text-white/60 text-sm max-w-[340px]">
               Join us on our journey of advancing decentralized systems
               through rigorous research and development at the University of
               Southern California.
@@ -31,7 +30,7 @@ export default function Footer() {
 
           {/* Socials + Email */}
           <div className="flex flex-col md:items-end gap-4">
-            <h5 className="font-mono text-xs text-[var(--text-secondary)] uppercase tracking-widest">
+            <h5 className="font-mono text-xs text-white/50 uppercase tracking-widest">
               Socials
             </h5>
             <div className="flex items-center gap-5">
@@ -49,10 +48,10 @@ export default function Footer() {
               ))}
             </div>
             <p className="text-sm">
-              <span className="text-[var(--text-secondary)]">email: </span>
+              <span className="text-white/50">email: </span>
               <a
                 href="mailto:bchain@usc.edu"
-                className="text-[var(--text-primary)] no-underline font-medium transition-colors duration-200 hover:text-cardinal-bright"
+                className="text-white no-underline font-medium transition-colors duration-200 hover:text-cardinal-bright"
               >
                 bchain@usc.edu
               </a>
@@ -62,8 +61,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="flex flex-col sm:flex-row justify-between items-center pt-4 font-mono text-xs text-[var(--text-secondary)]"
-          style={{ borderTop: "1px solid var(--border)" }}
+          className="flex flex-col sm:flex-row justify-between items-center pt-4 font-mono text-xs text-white/50"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
         >
           <span>&copy; 2026 Blockchain@USC. All rights reserved.</span>
           <span>FIGHT ON</span>

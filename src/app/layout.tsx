@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Source_Sans_3 } from "next/font/google";
+import { Source_Sans_3, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const sourceSans3 = Source_Sans_3({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-source-sans-3",
+  display: "swap",
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-playfair",
   display: "swap",
 });
 
@@ -23,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sourceSans3.variable} antialiased`}
+        className={`${sourceSans3.variable} ${playfairDisplay.variable} antialiased`}
       >
         {children}
       </body>

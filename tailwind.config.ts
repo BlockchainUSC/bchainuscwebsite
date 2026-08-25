@@ -22,10 +22,14 @@ const config: Config = {
           DEFAULT: "#660000",
           bright: "#990000",
         },
+        gold: {
+          DEFAULT: "#B8860B",
+          bright: "#FFC72C",
+        },
       },
       fontFamily: {
         sans: ["var(--font-source-sans-3)", "system-ui", "sans-serif"],
-        display: ["var(--font-source-sans-3)", "system-ui", "sans-serif"],
+        display: ["var(--font-playfair)", "Georgia", "serif"],
         mono: ["var(--font-source-sans-3)", "monospace"],
       },
       spacing: {
