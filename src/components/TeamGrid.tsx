@@ -25,7 +25,7 @@ export default function TeamGrid() {
             key={member.name}
             className="group relative flex flex-col items-center text-center p-md rounded-xl border border-black/[0.08] bg-black/[0.015] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-black/20 hover:bg-black/[0.04]"
           >
-            <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 bg-[var(--surface-hover)] ring-1 ring-black/10 group-hover:ring-cardinal-bright/40 transition-all">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 bg-[var(--surface-hover)] ring-2 ring-[#4a0d0d]/40 group-hover:ring-cardinal-bright/70 transition-all">
               <Image
                 src={member.image}
                 alt={member.name}

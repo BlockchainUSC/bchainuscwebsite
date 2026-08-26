@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import ResearchThumbnail from "./ResearchThumbnail";
 
 export type CarouselItem = {
   slug: string;
@@ -17,6 +18,8 @@ type Props = {
   linkLabel: string;
   showDate?: boolean;
   size?: "default" | "compact";
+  showThumbnail?: boolean;
+  sectionLabel?: string;
 };
 
 export default function CardCarousel({
@@ -24,6 +27,8 @@ export default function CardCarousel({
   linkLabel,
   showDate = false,
   size = "default",
+  showThumbnail = false,
+  sectionLabel,
 }: Props) {
   const compact = size === "compact";
   const trackRef = useRef<HTMLDivElement>(null);
@@ -68,64 +73,90 @@ export default function CardCarousel({
           <article
             key={item.slug}
             data-carousel-card
-            className={`card-hover-line snap-start shrink-0 relative overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] ${
+            className={`card-hover-line snap-start shrink-0 relative overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.25)] ${
               compact
-                ? "w-[70%] sm:w-[42%] md:w-[calc((100%-3rem)/3)] lg:w-[calc((100%-4.5rem)/4)] min-h-[210px] p-sm rounded-lg"
-                : "w-[85%] sm:w-[60%] md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] min-h-[300px] p-md"
+                ? "w-[70%] sm:w-[42%] md:w-[calc((100%-3rem)/3)] lg:w-[calc((100%-4.5rem)/4)] rounded-lg"
+                : "w-[85%] sm:w-[60%] md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
             }`}
             style={{
               backgroundColor: "var(--surface)",
               border: "1px solid var(--border)",
             }}
           >
-            {/* Meta */}
-            <div className={`font-mono text-xs text-cardinal-bright flex justify-between ${compact ? "mb-xs" : "mb-sm"}`}>
-              <span>{item.tags[0]}</span>
-              {showDate && item.date && (
-                <span>
-                  {new Date(item.date).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "2-digit",
-                    year: "numeric",
-                  })}
-                </span>
-              )}
-            </div>
-
-            {/* Title */}
-            <h3
-              className={`font-display leading-snug ${compact ? "text-base mb-xs line-clamp-2" : "text-xl mb-sm"}`}
-            >
-              {item.title}
-            </h3>
-
-            {/* Excerpt */}
-            <p
-              className={`text-[var(--text-secondary)] leading-relaxed flex-grow ${
-                compact ? "text-xs mb-xs line-clamp-3" : "text-sm mb-sm"
-              }`}
-            >
-              {item.excerpt}
-            </p>
-
-            {/* Author */}
-            {item.author && (
-              <p className={`font-mono text-xs text-[var(--text-secondary)] ${compact ? "mb-sm" : "mb-lg"}`}>
-                {item.author}
-              </p>
+            {showThumbnail && (
+              <div className="aspect-[3/2] w-full overflow-hidden">
+                <ResearchThumbnail slug={item.slug} />
+              </div>
             )}
 
-            {/* Link */}
-            <a
-              href={item.url ?? `#${item.slug}`}
-              {...(item.url ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className={`text-[var(--text-primary)] no-underline font-medium font-mono uppercase tracking-widest inline-flex items-center gap-2 group ${compact ? "text-xs" : "text-sm"}`}
-            >
-              {linkLabel}
-              <span className="transition-transform duration-200 group-hover:translate-x-1">
-                &rarr;
-              </span>
-            </a>
+            <div className={compact ? "p-sm flex flex-col flex-grow" : "p-md flex flex-col flex-grow"}>
+              {/* Meta */}
+              <div className={`font-mono text-xs text-[var(--text-secondary)] uppercase tracking-wider flex justify-between ${compact ? "mb-xs" : "mb-sm"}`}>
+                <span>{sectionLabel ?? item.tags[0]}</span>
+                {showDate && item.date && (
+                  <span>
+                    {new Date(item.date).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "2-digit",
+                      year: "numeric",
+                    })}
+                  </span>
+                )}
+              </div>
+
+              {/* Title */}
+              <h3
+                className={`font-display leading-snug ${compact ? "text-base mb-1 line-clamp-2" : "text-xl mb-1"}`}
+              >
+                {item.title}
+              </h3>
+
+              {/* Author */}
+              {item.author && (
+                <p className={`font-mono text-xs text-[var(--text-secondary)] ${compact ? "mb-xs" : "mb-sm"}`}>
+                  {item.author}
+                </p>
+              )}
+
+              {/* Excerpt */}
+              {!showThumbnail && (
+                <p
+                  className={`text-[var(--text-secondary)] leading-relaxed flex-grow ${
+                    compact ? "text-xs mb-xs line-clamp-3" : "text-sm mb-sm"
+                  }`}
+                >
+                  {item.excerpt}
+                </p>
+              )}
+
+              {showThumbnail && <div className="flex-grow" />}
+
+              {/* Tags */}
+              {showThumbnail && item.tags.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 mb-sm items-start">
+                  {item.tags.slice(0, 2).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] font-medium px-2.5 py-1 rounded-full border border-black/[0.12] text-[var(--text-secondary)]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Link */}
+              <a
+                href={item.url ?? `#${item.slug}`}
+                {...(item.url ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className={`text-[var(--text-primary)] no-underline font-medium font-mono uppercase tracking-widest inline-flex items-center gap-2 group mt-auto ${compact ? "text-xs" : "text-sm"}`}
+              >
+                {linkLabel}
+                <span className="transition-transform duration-200 group-hover:translate-x-1">
+                  &rarr;
+                </span>
+              </a>
+            </div>
           </article>
         ))}
       </div>

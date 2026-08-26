@@ -21,7 +21,14 @@ export default async function ResearchGrid() {
         description="Deep technical analysis of the protocols, primitives, and design patterns shaping the next era of onchain systems."
       />
 
-      <CardCarousel items={posts} linkLabel="Read Paper" showDate size="compact" />
+      <CardCarousel
+        items={posts}
+        linkLabel="Read Paper"
+        showDate
+        size="compact"
+        showThumbnail
+        sectionLabel="Research"
+      />
     </section>
   );
 }
