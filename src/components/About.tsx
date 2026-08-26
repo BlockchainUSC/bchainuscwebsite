@@ -100,8 +100,11 @@ export default function About() {
         </div>
 
         {/* Right — Application Process */}
-        <div className="lg:col-span-2 rounded-xl border border-black/[0.08] bg-black/[0.015] backdrop-blur-sm p-lg lg:sticky lg:top-28">
-          <h3 className="font-display text-lg font-semibold tracking-tight mb-6">
+        <div
+          className="lg:col-span-2 rounded-xl border border-white/[0.12] p-lg lg:sticky lg:top-28"
+          style={{ backgroundColor: "#4a0d0d" }}
+        >
+          <h3 className="font-display text-lg font-semibold tracking-tight mb-6 text-white">
             Application Process
           </h3>
           <div className="flex flex-col gap-5">
@@ -109,23 +112,23 @@ export default function About() {
               <div
                 key={step.label}
                 className={`pl-4 relative ${
-                  step.emphasize ? "border-l-2 border-cardinal-bright" : "border-l-2 border-black/[0.08]"
+                  step.emphasize ? "border-l-2 border-[#f6c65c]" : "border-l-2 border-white/[0.15]"
                 }`}
               >
-                <div className="font-mono text-[11px] tracking-wider text-[var(--text-secondary)]">
+                <div className="font-mono text-[11px] tracking-wider text-white/60">
                   {step.date}
                   {step.time && <span> · {step.time}</span>}
                 </div>
                 <div
                   className={`text-sm mt-0.5 ${
                     step.emphasize
-                      ? "font-semibold text-cardinal-bright"
-                      : "text-[var(--text-primary)]"
+                      ? "font-semibold text-[#f6c65c]"
+                      : "text-white"
                   }`}
                 >
                   {step.label}
                   {step.inviteOnly && (
-                    <span className="text-[var(--text-secondary)] font-normal"> (Invite Only)</span>
+                    <span className="text-white/60 font-normal"> (Invite Only)</span>
                   )}
                 </div>
               </div>

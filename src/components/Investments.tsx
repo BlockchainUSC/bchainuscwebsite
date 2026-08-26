@@ -8,6 +8,7 @@ const CURRENT_SEASON = {
   totalSchools: 17,
   usd: "-29.56%",
   eth: "+18.30%",
+  tint: "#4a0d0d",
 };
 
 const SINCE_INCEPTION = {
@@ -17,6 +18,7 @@ const SINCE_INCEPTION = {
   totalSchools: 17,
   usd: "-29.56%",
   eth: "+18.30%",
+  tint: "#4a0d0d",
 };
 
 const TRADING_PROGRAMS: {
@@ -24,6 +26,7 @@ const TRADING_PROGRAMS: {
   tag: string;
   description: string;
   href: string | null;
+  tint: string;
 }[] = [
   {
     title: "Trading Competition",
@@ -31,6 +34,7 @@ const TRADING_PROGRAMS: {
     description:
       "Turn $1,000 into $10,000 in a live trading competition on Legend, exclusive to Blockchain@USC members.",
     href: "https://www.legend.trade/",
+    tint: "#4a0d0d",
   },
   {
     title: "Prediction Markets",
@@ -38,6 +42,7 @@ const TRADING_PROGRAMS: {
     description:
       "We're partnering with Gemini to give members hands-on experience trading real-world event outcomes.",
     href: "https://www.gemini.com/predictions?status=active",
+    tint: "#4a0d0d",
   },
   {
     title: "Club Treasury",
@@ -45,6 +50,7 @@ const TRADING_PROGRAMS: {
     description:
       "Learn how to manage a treasury and invest club assets with a long-term time horizon and real accountability.",
     href: null,
+    tint: "#4a0d0d",
   },
 ];
 
@@ -58,35 +64,38 @@ function StatBox({
   primaryValue: string;
 }) {
   return (
-    <div className="rounded-lg border border-black/[0.08] bg-black/[0.02] p-4">
+    <div
+      className="rounded-lg border border-white/[0.12] p-4"
+      style={{ backgroundColor: data.tint }}
+    >
       <div className="flex items-center justify-between mb-3">
-        <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-[var(--text-secondary)]">
+        <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-white/60">
           {data.label}
         </div>
-        <div className="font-mono text-[10px] text-black/40">{data.period}</div>
+        <div className="font-mono text-[10px] text-white/40">{data.period}</div>
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <div className="font-display text-base font-semibold">{primaryValue}</div>
-          <div className="text-[11px] text-[var(--text-secondary)] mt-0.5">{primaryLabel}</div>
+          <div className="font-display text-base font-semibold text-white">{primaryValue}</div>
+          <div className="text-[11px] text-white/60 mt-0.5">{primaryLabel}</div>
         </div>
         <div>
-          <div className="font-display text-base font-semibold text-cardinal-bright">
+          <div className="font-display text-base font-semibold text-[#f6c65c]">
             {data.rank}
-            <span className="text-[var(--text-secondary)] font-normal text-xs">
+            <span className="text-white/60 font-normal text-xs">
               {" "}
               / {data.totalSchools}
             </span>
           </div>
-          <div className="text-[11px] text-[var(--text-secondary)] mt-0.5">Rank</div>
+          <div className="text-[11px] text-white/60 mt-0.5">Rank</div>
         </div>
         <div>
-          <div className="font-display text-base font-semibold">{data.usd}</div>
-          <div className="text-[11px] text-[var(--text-secondary)] mt-0.5">USD Return</div>
+          <div className="font-display text-base font-semibold text-white">{data.usd}</div>
+          <div className="text-[11px] text-white/60 mt-0.5">USD Return</div>
         </div>
         <div>
-          <div className="font-display text-base font-semibold">{data.eth}</div>
-          <div className="text-[11px] text-[var(--text-secondary)] mt-0.5">ETH Return</div>
+          <div className="font-display text-base font-semibold text-white">{data.eth}</div>
+          <div className="text-[11px] text-white/60 mt-0.5">ETH Return</div>
         </div>
       </div>
     </div>
@@ -168,23 +177,23 @@ export default function Investments() {
           <div className="flex flex-col gap-3">
             {TRADING_PROGRAMS.map((program) => {
               const cardClass =
-                "group rounded-lg border border-black/[0.08] bg-black/[0.02] p-4 no-underline transition-all duration-300 hover:border-black/20 hover:bg-black/[0.04]";
+                "group rounded-lg border border-white/[0.12] p-4 no-underline transition-all duration-300 hover:border-white/25";
               const content = (
                 <>
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-display text-base font-semibold text-[var(--text-primary)]">
+                    <h4 className="font-display text-base font-semibold text-white">
                       {program.title}
                     </h4>
                     {program.href && (
-                      <span className="text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">
+                      <span className="text-white/60 group-hover:text-white transition-colors">
                         ↗
                       </span>
                     )}
                   </div>
-                  <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-cardinal-bright mb-2">
+                  <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-[#f6c65c] mb-2">
                     {program.tag}
                   </div>
-                  <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                  <p className="text-white/70 text-sm leading-relaxed">
                     {program.description}
                   </p>
                 </>
@@ -197,11 +206,12 @@ export default function Investments() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cardClass}
+                  style={{ backgroundColor: program.tint }}
                 >
                   {content}
                 </a>
               ) : (
-                <div key={program.title} className={cardClass}>
+                <div key={program.title} className={cardClass} style={{ backgroundColor: program.tint }}>
                   {content}
                 </div>
               );
