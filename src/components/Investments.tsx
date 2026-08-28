@@ -158,8 +158,8 @@ export default async function Investments() {
               totalSchools={stats.totalSchools}
               usd={stats.sinceInception.usd}
               eth={stats.sinceInception.eth}
-              primaryLabel="ETH Return"
-              primaryValue={stats.sinceInception.eth}
+              primaryLabel="NAV"
+              primaryValue={stats.sinceInception.nav}
             />
             <StatBox
               meta={CURRENT_SEASON_META}

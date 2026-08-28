@@ -22,7 +22,7 @@ export type SeasonStat = {
 
 export type DormDaoStats = {
   currentSeason: SeasonStat & { nav: string }; // nav: "$91,036"
-  sinceInception: SeasonStat;
+  sinceInception: SeasonStat & { nav: string };
   totalSchools: number;
   /** true when any part is served from the hardcoded fallback */
   stale: boolean;
@@ -35,7 +35,7 @@ export type DormDaoStats = {
  */
 export const LAST_KNOWN: DormDaoStats = {
   currentSeason: { nav: "$113,353", rank: "#5", usd: "-31.62%", eth: "+16.50%" },
-  sinceInception: { rank: "#5", usd: "-31.62%", eth: "+16.50%" },
+  sinceInception: { nav: "$113,353", rank: "#5", usd: "-31.62%", eth: "+16.50%" },
   totalSchools: 17,
   stale: true,
 };
@@ -183,7 +183,7 @@ export async function getDormDaoStats(): Promise<DormDaoStats> {
     // leaderboard page briefly lags its per-school pages.
     const sinceInception =
       si && plausibleRank(si.rank, totalSchools)
-        ? { rank: `#${si.rank}`, usd: currentSeason.usd, eth: currentSeason.eth }
+        ? { rank: `#${si.rank}`, nav: currentSeason.nav, usd: currentSeason.usd, eth: currentSeason.eth }
         : LAST_KNOWN.sinceInception;
 
     return {
