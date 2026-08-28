@@ -1,23 +1,17 @@
 import SectionHeader from "./SectionHeader";
+import { getDormDaoStats } from "@/lib/dormdao";
 
-const CURRENT_SEASON = {
-  label: "Current Season",
-  period: "Oct 2025 – Sep 2026",
-  nav: "$116,769",
-  rank: "#6",
-  totalSchools: 17,
-  usd: "-29.56%",
-  eth: "+18.30%",
+// Static presentation for each stat box; the live figures (nav, rank, returns)
+// come from getDormDaoStats() and are refreshed weekly via ISR.
+const SINCE_INCEPTION_META = {
+  label: "Since Inception",
+  period: "Founded Oct 2023",
   tint: "#4a0d0d",
 };
 
-const SINCE_INCEPTION = {
-  label: "Since Inception",
-  period: "Founded Oct 2023",
-  rank: "#2",
-  totalSchools: 17,
-  usd: "-29.56%",
-  eth: "+18.30%",
+const CURRENT_SEASON_META = {
+  label: "Current Season",
+  period: "Oct 2025 – Sep 2026",
   tint: "#4a0d0d",
 };
 
@@ -55,24 +49,32 @@ const TRADING_PROGRAMS: {
 ];
 
 function StatBox({
-  data,
+  meta,
+  rank,
+  totalSchools,
+  usd,
+  eth,
   primaryLabel,
   primaryValue,
 }: {
-  data: typeof CURRENT_SEASON | typeof SINCE_INCEPTION;
+  meta: { label: string; period: string; tint: string };
+  rank: string;
+  totalSchools: number;
+  usd: string;
+  eth: string;
   primaryLabel: string;
   primaryValue: string;
 }) {
   return (
     <div
       className="rounded-lg border border-white/[0.12] p-4"
-      style={{ backgroundColor: data.tint }}
+      style={{ backgroundColor: meta.tint }}
     >
       <div className="flex items-center justify-between mb-3">
         <div className="font-mono text-[10px] tracking-[0.15em] uppercase text-white/60">
-          {data.label}
+          {meta.label}
         </div>
-        <div className="font-mono text-[10px] text-white/40">{data.period}</div>
+        <div className="font-mono text-[10px] text-white/40">{meta.period}</div>
       </div>
       <div className="grid grid-cols-2 gap-3">
         <div>
@@ -81,20 +83,20 @@ function StatBox({
         </div>
         <div>
           <div className="font-display text-base font-semibold text-[#f6c65c]">
-            {data.rank}
+            {rank}
             <span className="text-white/60 font-normal text-xs">
               {" "}
-              / {data.totalSchools}
+              / {totalSchools}
             </span>
           </div>
           <div className="text-[11px] text-white/60 mt-0.5">Rank</div>
         </div>
         <div>
-          <div className="font-display text-base font-semibold text-white">{data.usd}</div>
+          <div className="font-display text-base font-semibold text-white">{usd}</div>
           <div className="text-[11px] text-white/60 mt-0.5">USD Return</div>
         </div>
         <div>
-          <div className="font-display text-base font-semibold text-white">{data.eth}</div>
+          <div className="font-display text-base font-semibold text-white">{eth}</div>
           <div className="text-[11px] text-white/60 mt-0.5">ETH Return</div>
         </div>
       </div>
@@ -102,7 +104,9 @@ function StatBox({
   );
 }
 
-export default function Investments() {
+export default async function Investments() {
+  const stats = await getDormDaoStats();
+
   return (
     <section
       id="investments"
@@ -148,8 +152,24 @@ export default function Investments() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <StatBox data={SINCE_INCEPTION} primaryLabel="ETH Return" primaryValue={SINCE_INCEPTION.eth} />
-            <StatBox data={CURRENT_SEASON} primaryLabel="NAV" primaryValue={CURRENT_SEASON.nav} />
+            <StatBox
+              meta={SINCE_INCEPTION_META}
+              rank={stats.sinceInception.rank}
+              totalSchools={stats.totalSchools}
+              usd={stats.sinceInception.usd}
+              eth={stats.sinceInception.eth}
+              primaryLabel="NAV"
+              primaryValue={stats.sinceInception.nav}
+            />
+            <StatBox
+              meta={CURRENT_SEASON_META}
+              rank={stats.currentSeason.rank}
+              totalSchools={stats.totalSchools}
+              usd={stats.currentSeason.usd}
+              eth={stats.currentSeason.eth}
+              primaryLabel="NAV"
+              primaryValue={stats.currentSeason.nav}
+            />
           </div>
 
           <a

@@ -1,6 +1,13 @@
 import SectionHeader from "./SectionHeader";
 
-const APPLICATION_STEPS = [
+const APPLICATION_STEPS: {
+  date: string;
+  time: string | null;
+  label: string;
+  link?: { text: string; href: string };
+  emphasize?: boolean;
+  inviteOnly?: boolean;
+}[] = [
   {
     date: "Wed., August 26th",
     time: "11am – 2pm",
@@ -8,8 +15,12 @@ const APPLICATION_STEPS = [
   },
   {
     date: "Tues., September 1",
-    time: "7:00pm – 8:00pm",
-    label: "Open Info Session",
+    time: "7:00pm – 8:00pm · JKP 202",
+    label: "Open Info Session w/ ",
+    link: {
+      text: "VEDA",
+      href: "https://www.marshall.usc.edu/institutes-and-centers/vaneck-digital-assets-initiative",
+    },
   },
   {
     date: "Sun., September 6th",
@@ -127,6 +138,16 @@ export default function About() {
                   }`}
                 >
                   {step.label}
+                  {step.link && (
+                    <a
+                      href={step.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-white/40 underline-offset-2 hover:decoration-white transition-colors"
+                    >
+                      {step.link.text}
+                    </a>
+                  )}
                   {step.inviteOnly && (
                     <span className="text-white/60 font-normal"> (Invite Only)</span>
                   )}
